@@ -28,7 +28,7 @@ namespace DataStructures.Queue
         }
         public void DisplayQueue()
         {
-            _internalList.TraverseList();
+            _internalList.DisplaySinglyLinkedList();
         }
     }
 }

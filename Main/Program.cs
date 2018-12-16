@@ -21,7 +21,7 @@ namespace Main
             SinglyLinkedListObj1.AddToBeginning(2);
             SinglyLinkedListObj1.AddToBeginning(3);
 
-            SinglyLinkedListObj1.TraverseList();
+            SinglyLinkedListObj1.DisplaySinglyLinkedList();
 
             SinglyLinkedList<int> SinglyLinkedListObj2 = new SinglyLinkedList<int>();
             SinglyLinkedListObj2.AddToEnd(1);
@@ -31,13 +31,13 @@ namespace Main
             SinglyLinkedListObj2.AddToEnd(2);
             SinglyLinkedListObj2.AddToEnd(1);
 
-            SinglyLinkedListObj2.TraverseList();
+            SinglyLinkedListObj2.DisplaySinglyLinkedList();
 
             //SinglyLinkedListObj2.DeleteNode(2);
             //SinglyLinkedListObj2.DeleteFromBeginning();
             SinglyLinkedListObj2.DeleteFromEnd();
-            
-            SinglyLinkedListObj2.TraverseList();
+
+            SinglyLinkedListObj2.DisplaySinglyLinkedList();
             SinglyLinkedListObj2.FindItem(97);
             SinglyLinkedListObj2.FindItem(1);
             SinglyLinkedListObj2.DeleteFromBeginning();
@@ -82,7 +82,7 @@ namespace Main
 
 
             Console.WriteLine("----------------------");
-
+            Console.ReadLine();
         }
     }
 }

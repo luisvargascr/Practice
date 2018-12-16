@@ -32,7 +32,7 @@ namespace DataStructures.Stack
         }
         public void DisplayStack()
         {
-            _internalList.TraverseList();
+            _internalList.DisplaySinglyLinkedList();
         }
     }
 }
