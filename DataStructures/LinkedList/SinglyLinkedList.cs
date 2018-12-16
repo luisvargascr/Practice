@@ -165,7 +165,7 @@ namespace DataStructures.LinkedList
                 }
             }
         }
-        public void TraverseList()
+        public void DisplaySinglyLinkedList()
         {
             Node<T> tmp = _head;
             int cnt = 0;
