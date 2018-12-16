@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataStructures", "DataStructures\DataStructures.shproj", "{1AC43E4C-2BE9-416A-8EE8-F9F5AEF496AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{85D1E1E3-56C2-46EB-B91E-316704DB7892}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Algorithms", "Algorithms\Algorithms.shproj", "{54B38965-7ED6-4EA2-A789-8F00311FC2F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Debug|x86.ActiveCfg = Debug|x86
+		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Debug|x86.Build.0 = Debug|x86
+		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Release|x86.ActiveCfg = Release|x86
+		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal

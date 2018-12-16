@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{1AC43E4C-2BE9-416A-8EE8-F9F5AEF496AD}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>DataStructures</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MultidimensionalArrays.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LinkedList\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LinkedList\SinglyLinkedList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Stack\LLStack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Queue\LLQueue.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)LinkedList\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Stack\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Queue\" />
+  </ItemGroup>
+</Project>
