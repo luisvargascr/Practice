@@ -4,9 +4,9 @@
 /Users/luis/Projects/DataStructures/Main/obj/x86/Debug/Main.csproj.CoreCompileInputs.cache
 /Users/luis/Projects/DataStructures/Main/obj/x86/Debug/Main.exe
 /Users/luis/Projects/DataStructures/Main/obj/x86/Debug/Main.pdb
-D:\SourceCode\Practice\Main\obj\x86\Debug\Main.csprojAssemblyReference.cache
-D:\SourceCode\Practice\Main\obj\x86\Debug\Main.csproj.CoreCompileInputs.cache
-D:\SourceCode\Practice\Main\obj\x86\Debug\Main.exe
-D:\SourceCode\Practice\Main\obj\x86\Debug\Main.pdb
-D:\SourceCode\Practice\Main\bin\Debug\Main.exe
-D:\SourceCode\Practice\Main\bin\Debug\Main.pdb
+D:/SourceCode/Practice/Main/obj/x86/Debug/Main.csprojAssemblyReference.cache
+D:/SourceCode/Practice/Main/obj/x86/Debug/Main.csproj.CoreCompileInputs.cache
+D:/SourceCode/Practice/Main/obj/x86/Debug/Main.exe
+D:/SourceCode/Practice/Main/obj/x86/Debug/Main.pdb
+D:/SourceCode/Practice/Main/bin/Debug/Main.exe
+D:/SourceCode/Practice/Main/bin/Debug/Main.pdb
