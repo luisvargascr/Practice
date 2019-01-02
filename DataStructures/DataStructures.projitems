@@ -14,10 +14,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)LinkedList\SinglyLinkedList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Stack\LLStack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Queue\LLQueue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\BinaryTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)LinkedList\" />
     <Folder Include="$(MSBuildThisFileDirectory)Stack\" />
     <Folder Include="$(MSBuildThisFileDirectory)Queue\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Tree\" />
   </ItemGroup>
 </Project>

@@ -78,8 +78,10 @@ namespace DataStructures.LinkedList
         }
         public void AddToBeginning(T item)
         {
-            Node<T> tmp = new Node<T>();
-            tmp.data = item;
+            Node<T> tmp = new Node<T>
+            {
+                data = item
+            };
 
             if (_head == null)
             {
@@ -94,8 +96,10 @@ namespace DataStructures.LinkedList
         }
         public void AddToEnd (T item)
         {
-            Node<T> tmp = new Node<T>();
-            tmp.data = item;
+            Node<T> tmp = new Node<T>
+            {
+                data = item
+            };
 
             if (_head == null)
             {

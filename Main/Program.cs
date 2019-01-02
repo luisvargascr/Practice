@@ -4,6 +4,7 @@ using Algorithms;
 using DataStructures.LinkedList;
 using DataStructures.Stack;
 using DataStructures.Queue;
+using DataStructures.Tree;
 
 namespace Main
 {
@@ -11,9 +12,16 @@ namespace Main
     {
         public static void Main(string[] args)
         {
-            // Console.WriteLine("Hello World!");
-            // MergeSort mergeSort = new MergeSort();
-            // MultidimensionalArrays mda = new MultidimensionalArrays();
+            BinaryTree<int> BTree = new BinaryTree<int>();
+            BTree.Insert(100);
+            BTree.Insert(7);
+            BTree.Insert(10);
+            BTree.Insert(101);
+            BTree.Insert(105);
+            var Root = BTree.Find(100);
+            BTree.InOrder(Root);
+
+            Console.ReadLine();
 
 
             SinglyLinkedList<int> SinglyLinkedListObj1 = new SinglyLinkedList<int>();

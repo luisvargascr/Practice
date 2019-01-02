@@ -1,14 +1,16 @@
-﻿<Properties StartupConfiguration="{85D1E1E3-56C2-46EB-B91E-316704DB7892}|Default">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{85D1E1E3-56C2-46EB-B91E-316704DB7892}|Default">
   <MonoDevelop.Ide.ItemProperties.Algorithms FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Main/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructures/Tree/BinaryTree.cs">
     <Files>
-      <File FileName="DataStructures/MultidimensionalArrays.cs" Line="20" Column="54" />
-      <File FileName="Main/Program.cs" Line="71" Column="13" />
+      <File FileName="DataStructures/MultidimensionalArrays.cs" Line="15" Column="10" />
+      <File FileName="Main/Program.cs" Line="7" Column="1" />
       <File FileName="Algorithms/MergeSort.cs" Line="6" Column="25" />
-      <File FileName="DataStructures/LinkedList/Node.cs" Line="9" Column="2" />
-      <File FileName="DataStructures/LinkedList/SinglyLinkedList.cs" Line="145" Column="36" />
+      <File FileName="DataStructures/LinkedList/Node.cs" Line="3" Column="2" />
+      <File FileName="DataStructures/LinkedList/SinglyLinkedList.cs" Line="99" Column="34" />
       <File FileName="DataStructures/Stack/LLStack.cs" Line="21" Column="42" />
       <File FileName="DataStructures/Queue/LLQueue.cs" Line="21" Column="42" />
+      <File FileName="DataStructures/Tree/Node.cs" Line="12" Column="31" />
+      <File FileName="DataStructures/Tree/BinaryTree.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
