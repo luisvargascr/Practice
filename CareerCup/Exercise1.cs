@@ -7,7 +7,7 @@ namespace CareerCup
     public static class Exercise1
     {
         /*
-         * CAREERCUP        
+         * CAREERCUP - Sample Exercise      
             Find the location of BCD in String S
             Given for example S - BCXXBXXCXDXBCD, then the result should be
             [[4,7,9],[11,12,13]]
