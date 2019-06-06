@@ -1,24 +1,42 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{85D1E1E3-56C2-46EB-B91E-316704DB7892}|Default">
+  <MonoDevelop.Ide.ItemProperties.CareerCup FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.LeetCodePractice FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Algorithms FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataStructures/Tree/BinaryTree.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Main/Program.cs">
     <Files>
-      <File FileName="DataStructures/MultidimensionalArrays.cs" Line="15" Column="10" />
-      <File FileName="Main/Program.cs" Line="7" Column="1" />
-      <File FileName="Algorithms/MergeSort.cs" Line="6" Column="25" />
-      <File FileName="DataStructures/LinkedList/Node.cs" Line="3" Column="2" />
-      <File FileName="DataStructures/LinkedList/SinglyLinkedList.cs" Line="99" Column="34" />
-      <File FileName="DataStructures/Stack/LLStack.cs" Line="21" Column="42" />
-      <File FileName="DataStructures/Queue/LLQueue.cs" Line="21" Column="42" />
-      <File FileName="DataStructures/Tree/Node.cs" Line="12" Column="31" />
-      <File FileName="DataStructures/Tree/BinaryTree.cs" Line="1" Column="1" />
+      <File FileName="Main/Program.cs" Line="102" Column="1" />
+      <File FileName="Algorithms/QuickSort.cs" Line="21" Column="10" />
+      <File FileName="CareerCup/Exercise1.cs" Line="10" Column="22" />
+      <File FileName="DataStructures/MultidimensionalArrays.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DataStructures" expanded="True">
+            <Node name="Algorithms" expanded="True" />
+            <Node name="CareerCup" expanded="True" />
+            <Node name="DataStructures" expanded="True" />
+            <Node name="LeetCodePractice" expanded="True" />
+            <Node name="Main" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.DataStructures FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Main PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/luis/Projects/DataStructures/Main/Program.cs" relfile="Main/Program.cs" line="64" column="1" />
+      <Breakpoint file="/Users/luis/Projects/DataStructures/Main/Program.cs" relfile="Main/Program.cs" line="48" column="70" />
+      <Breakpoint file="/Users/luis/Projects/DataStructures/DataStructures/MultidimensionalArrays.cs" relfile="DataStructures/MultidimensionalArrays.cs" line="57" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

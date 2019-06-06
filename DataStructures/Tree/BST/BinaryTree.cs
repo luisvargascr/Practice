@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataStructures.Tree
+namespace DataStructures.BST.Tree
 {
-    public class BinaryTree<T>
+    public class BinaryTree<T> where T: IComparable
     {
         private Node<T> _root;
 
@@ -12,13 +12,10 @@ namespace DataStructures.Tree
 
             if (current == null)
                 return null;
-
-            var currentItem   = current.Data as IComparable;
-            var submittedItem = item as IComparable;
-
-            while (!current.Data.Equals(submittedItem))
+                
+            while (!current.Data.Equals(item))
             {
-                if (submittedItem.CompareTo(currentItem) < 0)
+                if (item.CompareTo(current.Data) < 0)
                 {
                     current = current.LeftChild;
                 }
@@ -45,14 +42,13 @@ namespace DataStructures.Tree
             else
             {
                 var current = _root;
-                var submittedItem = item as IComparable;
                 Node<T> parent = null;
 
                 while (true)
                 {
                     parent = current;
 
-                    if (submittedItem.CompareTo(current.Data) < 0)
+                    if (item.CompareTo(current.Data) < 0)
                     {
                         current = current.LeftChild;
                         if (current == null)

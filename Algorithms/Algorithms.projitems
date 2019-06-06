@@ -10,5 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MergeSort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QuickSort.cs" />
   </ItemGroup>
 </Project>

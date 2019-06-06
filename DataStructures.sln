@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", 
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Algorithms", "Algorithms\Algorithms.shproj", "{54B38965-7ED6-4EA2-A789-8F00311FC2F4}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LeetCodePractice", "LeetCodePractice\LeetCodePractice.shproj", "{D4612424-6C4E-48B5-8135-046EE4F5AA15}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CareerCup", "CareerCup\CareerCup.shproj", "{67BE07B3-BDB5-4D8F-8B17-B9D7ECD304FA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DataStructures\DataStructures.projitems*{1ac43e4c-2be9-416a-8ee8-f9f5aef496ad}*SharedItemsImports = 13

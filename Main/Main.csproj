@@ -35,6 +35,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <Import Project="..\CareerCup\CareerCup.projitems" Label="Shared" Condition="Exists('..\CareerCup\CareerCup.projitems')" />
+  <Import Project="..\LeetCodePractice\LeetCodePractice.projitems" Label="Shared" Condition="Exists('..\LeetCodePractice\LeetCodePractice.projitems')" />
   <Import Project="..\Algorithms\Algorithms.projitems" Label="Shared" Condition="Exists('..\Algorithms\Algorithms.projitems')" />
   <Import Project="..\DataStructures\DataStructures.projitems" Label="Shared" Condition="Exists('..\DataStructures\DataStructures.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
