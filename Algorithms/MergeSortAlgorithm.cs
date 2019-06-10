@@ -5,36 +5,36 @@ namespace Algorithms
     {
         private static void Merge(int[] input, int left, int middle, int right)
         {
-            int[] leftArray = new int[middle - left + 1];
+            int[] leftArray  = new int[middle - left + 1];
             int[] rightArray = new int[right - middle];
 
             Array.Copy(input, left, leftArray, 0, middle - left + 1);
             Array.Copy(input, middle + 1, rightArray, 0, right - middle);
 
-            int i = 0;
-            int j = 0;
+            int left_cnt = 0;
+            int right_cnt = 0;
 
             for (int cnt = left; cnt < right + 1; cnt++)
             {
-                if (i == leftArray.Length)
+                if (left_cnt == leftArray.Length)
                 {
-                    input[cnt] = rightArray[j];
-                    j++;
+                    input[cnt] = rightArray[right_cnt];
+                    right_cnt++;
                 }
-                else if (j == rightArray.Length)
+                else if (right_cnt == rightArray.Length)
                 {
-                    input[cnt] = leftArray[i];
-                    i++;
+                    input[cnt] = leftArray[left_cnt];
+                    left_cnt++;
                 }
-                else if (leftArray[i] <= rightArray[j])
+                else if (leftArray[left_cnt] <= rightArray[right_cnt])
                 {
-                    input[cnt] = leftArray[i];
-                    i++;
+                    input[cnt] = leftArray[left_cnt];
+                    left_cnt++;
                 }
                 else
                 {
-                    input[cnt] = rightArray[j];
-                    j++;
+                    input[cnt] = rightArray[right_cnt];
+                    right_cnt++;
                 }
             }
         }

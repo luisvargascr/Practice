@@ -19,25 +19,25 @@ namespace Main
             //int[] a = { 1, 5, 2, 6, 3, 7 };
             //int[] b = { 5, 6, 7, 1, 2, 3 };
 
-            List<int[]> x = Exercise1.FindSubstringLocation("BCXXBXXCXDXBCD", "BCD");
-            PrintResults(x);
-            Console.WriteLine("\n");
-            List<int[]> y = Exercise1.FindSubstringLocation("BCXXBXCXBCBC", "BCBC");
-            PrintResults(y);
+            //List<int[]> x = Exercise1.FindSubstringLocation("BCXXBXXCXDXBCD", "BCD");
+            //PrintResults(x);
+            //Console.WriteLine("\n");
+            //List<int[]> y = Exercise1.FindSubstringLocation("BCXXBXCXBCBC", "BCBC");
+            //PrintResults(y);
 
-            int[] s = { 10, 20, 20, 10, 10, 30, 50, 10, 20 };
-            int FinalResult = WarmUp.SockMerchant(9, s);
-            Console.WriteLine(FinalResult);
+            //int[] s = { 10, 20, 20, 10, 10, 30, 50, 10, 20 };
+            //int FinalResult = WarmUp.SockMerchant(9, s);
+            //Console.WriteLine(FinalResult);
 
-            string v = "UDDDUDUU";
+            //string v = "UDDDUDUU";
 
-            int FinalOutput = WarmUp.CountingValleys(8, v);
+            //int FinalOutput = WarmUp.CountingValleys(8, v);
 
 
             int[] arr = { 88, 23, 65, 2, 89, 7, 3, 1, 90, 4 };
 
-            Console.WriteLine("Before MergeSort");
             Console.WriteLine("\n");
+            Console.WriteLine("Before MergeSort:");
             foreach (int i in arr)
             {
                 Console.Write(i + ",");
@@ -46,11 +46,12 @@ namespace Main
             MergeSortAlgorithm.MergeSort(arr, 0, arr.Length - 1);
 
             Console.WriteLine("\n");
-            Console.WriteLine("After MergeSort");
+            Console.WriteLine("After MergeSort:");
             foreach (int i in arr)
             {
                 Console.Write(i + ",");
             }
+            Console.WriteLine("\n");
 
 
             //Console.WriteLine("Before QuickSort");

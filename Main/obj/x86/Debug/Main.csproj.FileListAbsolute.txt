@@ -10,3 +10,15 @@ D:/SourceCode/Practice/Main/bin/Debug/Main.pdb
 /Users/luis/Projects/DataStructures/Main/obj/x86/Debug/Main.exe
 /Users/luis/Projects/DataStructures/Main/obj/x86/Debug/Main.pdb
 /Users/luis/Projects/DataStructures/Main/obj/x86/Debug/Main.csprojAssemblyReference.cache
+C:\SourceCode\Git-P\Practice\Practice\Main\bin\Debug\Main.exe
+C:\SourceCode\Git-P\Practice\Practice\Main\bin\Debug\Main.pdb
+C:\SourceCode\Git-P\Practice\Practice\Main\obj\x86\Debug\Main.csprojAssemblyReference.cache
+C:\SourceCode\Git-P\Practice\Practice\Main\obj\x86\Debug\Main.csproj.CoreCompileInputs.cache
+C:\SourceCode\Git-P\Practice\Practice\Main\obj\x86\Debug\Main.exe
+C:\SourceCode\Git-P\Practice\Practice\Main\obj\x86\Debug\Main.pdb
+C:\SourceCode\Git-P\Practice\Main\bin\Debug\Main.exe
+C:\SourceCode\Git-P\Practice\Main\bin\Debug\Main.pdb
+C:\SourceCode\Git-P\Practice\Main\obj\x86\Debug\Main.csprojAssemblyReference.cache
+C:\SourceCode\Git-P\Practice\Main\obj\x86\Debug\Main.csproj.CoreCompileInputs.cache
+C:\SourceCode\Git-P\Practice\Main\obj\x86\Debug\Main.exe
+C:\SourceCode\Git-P\Practice\Main\obj\x86\Debug\Main.pdb

@@ -17,9 +17,15 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DataStructures\DataStructures.projitems*{1ac43e4c-2be9-416a-8ee8-f9f5aef496ad}*SharedItemsImports = 13
+		HackerRank\HackerRank.projitems*{2990cd06-97f6-459c-9f3f-4fa305f3b947}*SharedItemsImports = 13
 		Algorithms\Algorithms.projitems*{54b38965-7ed6-4ea2-a789-8f00311fc2f4}*SharedItemsImports = 13
+		CareerCup\CareerCup.projitems*{67be07b3-bdb5-4d8f-8b17-b9d7ecd304fa}*SharedItemsImports = 13
 		Algorithms\Algorithms.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
+		CareerCup\CareerCup.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
 		DataStructures\DataStructures.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
+		HackerRank\HackerRank.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
+		LeetCodePractice\LeetCodePractice.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
+		LeetCodePractice\LeetCodePractice.projitems*{d4612424-6c4e-48b5-8135-046ee4f5aa15}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
