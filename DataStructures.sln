@@ -12,6 +12,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LeetCodePractice", "LeetCod
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CareerCup", "CareerCup\CareerCup.shproj", "{67BE07B3-BDB5-4D8F-8B17-B9D7ECD304FA}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HackerRank", "HackerRank\HackerRank.shproj", "{2990CD06-97F6-459C-9F3F-4FA305F3B947}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DataStructures\DataStructures.projitems*{1ac43e4c-2be9-416a-8ee8-f9f5aef496ad}*SharedItemsImports = 13
