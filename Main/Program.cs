@@ -53,6 +53,12 @@ namespace Main
             }
             Console.WriteLine("\n");
 
+            int[] c = { 0,0,1,0,0,1,0 };
+
+
+            int val = WarmUp.JumpingOnClouds(c);
+            Console.WriteLine(val);
+            Console.WriteLine("\n");
 
             //Console.WriteLine("Before QuickSort");
             //Console.WriteLine("\n");
