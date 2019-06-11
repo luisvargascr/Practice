@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace HackerRank
 {
@@ -201,6 +202,67 @@ namespace HackerRank
             }
             return ValidMoves;
         }
+        #endregion
+        #region Repeated String
+
+        /*
+            Lilah has a string, , of lowercase English letters that she repeated infinitely many times.
+
+            Given an integer, , find and print the number of letter a's in the first  letters of Lilah's infinite string.
+
+            For example, if the string  and , the substring we consider is , the first  characters of her infinite string. There are  occurrences of a in the substring.
+
+            Function Description
+
+            Complete the repeatedString function in the editor below. It should return an integer representing the number of occurrences of a in the prefix of length  in the infinitely repeating string.
+
+            repeatedString has the following parameter(s):
+
+            s: a string to repeat
+            n: the number of characters to consider
+            Input Format
+
+            The first line contains a single string, . 
+            The second line contains an integer, .
+
+            Constraints
+
+            For  of the test cases, .
+            Output Format
+
+            Print a single integer denoting the number of letter a's in the first  letters of the infinite string created by repeating  infinitely many times.
+
+            Sample Input 0
+
+            aba
+            10
+            Sample Output 0
+
+            7
+        */
+
+        public static long RepeatedString(string s, long n)
+        {
+
+            char[] old_s = s.ToCharArray();
+            long total_sub = n / old_s.Length;
+            long rem_sub = n % old_s.Length;
+            long a_total = 0;
+
+            for (int cnt = 0; cnt < old_s.Length; cnt++)
+            {
+                if (old_s[cnt].Equals('a'))
+                {
+                    a_total++;
+                }
+            }
+            var remainder = s.Substring(0, (int)rem_sub).Count(x => x.Equals('a'));
+
+            a_total = (a_total * total_sub) + remainder;
+
+            return a_total;
+        }
+
         #endregion
     }
 }
