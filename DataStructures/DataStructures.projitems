@@ -9,6 +9,8 @@
     <Import_RootNamespace>DataStructures</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\Vertex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultidimensionalArrays.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LinkedList\Node.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LinkedList\SinglyLinkedList.cs" />

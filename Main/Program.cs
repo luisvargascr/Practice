@@ -9,6 +9,7 @@ using LeetCodePractice;
 using CareerCup;
 using HackerRank;
 using System.Collections.Generic;
+using DataStructures.Graph;
 
 namespace Main
 {
@@ -16,6 +17,58 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            Graph grapho = new Graph();
+
+            Vertex vertexLuis = new Vertex
+            {
+                Name = "Luis"
+            };
+            Vertex vertexKitt = new Vertex
+            {
+                Name = "Kitt"
+            };
+            Vertex vertexCarlos = new Vertex
+            {
+                Name = "Carlos"
+            };
+            Vertex vertexJuan = new Vertex
+            {
+                Name = "Juan"
+            };
+            Vertex vertexJohn = new Vertex
+            {
+                Name = "John"
+            };
+
+            vertexLuis.Nodes.Add(vertexKitt);
+            vertexLuis.Nodes.Add(vertexCarlos);
+            vertexLuis.Nodes.Add(vertexJuan);
+
+            vertexKitt.Nodes.Add(vertexLuis);
+            vertexKitt.Nodes.Add(vertexCarlos);
+            vertexKitt.Nodes.Add(vertexJuan);
+
+            vertexCarlos.Nodes.Add(vertexKitt);
+            vertexCarlos.Nodes.Add(vertexLuis);
+            vertexCarlos.Nodes.Add(vertexJuan);
+
+            vertexJuan.Nodes.Add(vertexLuis);
+            vertexJuan.Nodes.Add(vertexCarlos);
+
+            grapho.Vertices.Add(vertexJuan);
+            grapho.Vertices.Add(vertexCarlos);
+            grapho.Vertices.Add(vertexLuis);
+            grapho.Vertices.Add(vertexKitt);
+
+            //grapho.DepthFirstSearch(vertexJuan, 1);
+            //grapho.DepthFirstSearchNR(vertexLuis);
+            //grapho.BreadthFirstSearchNR(vertexLuis);
+            
+            bool x1 = grapho.RouteBetweenNodes(vertexLuis, vertexJohn);
+            //bool x2 = grapho.RouteBetweenNodes(vertexCarlos, vertexJuan);
+
+            Console.ReadLine();
+
             //int[] a = { 1, 5, 2, 6, 3, 7 };
             //int[] b = { 5, 6, 7, 1, 2, 3 };
 
