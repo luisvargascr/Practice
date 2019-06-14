@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructures.Graph
 {
@@ -79,7 +80,6 @@ namespace DataStructures.Graph
                 }
             }
         }
-
         public bool RouteBetweenNodes(Vertex nodeA, Vertex nodeB)
         {
             if (nodeA == null)
@@ -110,6 +110,58 @@ namespace DataStructures.Graph
                 }
             }
             return false;
+        }
+        public void TopologicalSort()
+        {
+            var results = new Stack<Vertex>();
+            var visited    = new List<Vertex>();
+            var pending = new List<Vertex>();
+
+            Visit(Vertices, results, visited, pending);
+            int cnt = 0;
+
+            foreach (Vertex x in results)
+            {
+                if (++cnt == results.Count)
+                    Console.Write(x.Name);
+                else
+                    Console.Write(x.Name + "->");
+            }
+        }
+
+        private void Visit(ICollection<Vertex> graph, Stack<Vertex> results, ICollection<Vertex> visited, ICollection<Vertex> pending)
+        {
+            // Foreach node in the graph
+            foreach (var n in graph)
+            {
+                // Skip if node has been visited
+                if (!visited.Contains(n))
+                {
+                    if (!pending.Contains(n))
+                    {
+                        pending.Add(n);
+                    }
+                    else
+                    {
+                        Console.WriteLine(String.Format("Cycle detected (node Data={0})", n.Name));
+                        return;
+                    }
+
+                    // recursively call this function for every child of the current node
+                    Visit(n.Nodes, results, visited, pending);
+
+                    if (pending.Contains(n))
+                    {
+                        pending.Remove(n);
+                    }
+
+                    visited.Add(n);
+
+                    // Made it past the recusion part, so there are no more dependents.
+                    // Therefore, append node to the output list.
+                    results.Push(n);
+                }
+            }
         }
     }
 }
