@@ -114,7 +114,7 @@ namespace DataStructures.Graph
         public void TopologicalSort()
         {
             var results = new Stack<Vertex>();
-            var visited    = new List<Vertex>();
+            var visited = new List<Vertex>();
             var pending = new List<Vertex>();
 
             Visit(Vertices, results, visited, pending);
