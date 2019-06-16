@@ -10,5 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)WarmUp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArrayExercises.cs" />
   </ItemGroup>
 </Project>

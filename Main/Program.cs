@@ -17,6 +17,9 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            int[] arr = { 2,1,5,3,4 };
+            HackerRank.ArrayExercises.MinimumBribes(arr);
+
             //Graph grapho = new Graph();
 
             //Vertex vertexLuis = new Vertex
