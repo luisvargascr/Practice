@@ -17,8 +17,32 @@ namespace Main
     {
         public static void Main(string[] args)
         {
-            int[] arr = { 2,1,5,3,4 };
-            HackerRank.ArrayExercises.MinimumBribes(arr);
+
+            int[] arr0 = { 8, 7, 2, 5, 3, 1 };
+            DataStructures.Arrays.OneDimensionalArray.FindPairNLogN(arr0, 10);
+            int[] zarr = { 4, 2, -3, -1, 0, 4};
+            //Console.WriteLine(string.Format("Can you add zero? {0}.",DataStructures.Arrays.OneDimensionalArray.ZeroSumSubarray(zarr) ? "Yes" : "No"));
+            DataStructures.Arrays.OneDimensionalArray.PrintAllSubarrays(zarr);
+            Console.ReadLine();
+            
+            int[] arr1 = { 7,1,3,2,4,5,6 };
+            int[] arr2 = { 4,3,1,2 };
+            int[] arr3 = { 2, 3, 4, 1, 5 };
+            int[] arr4 = { 1,3,5,2,4,6,7 };
+
+
+            int x1 = HackerRank.ArrayExercises.MinimumSwaps(arr1);
+            int x2 = HackerRank.ArrayExercises.MinimumSwaps(arr2);
+            int x3 = HackerRank.ArrayExercises.MinimumSwaps(arr3);
+            int x4 = HackerRank.ArrayExercises.MinimumSwaps(arr4);
+
+
+            Console.WriteLine(x1);
+            Console.WriteLine(x2);
+            Console.WriteLine(x3);
+            Console.WriteLine(x4);
+            Console.ReadLine();
+            //HackerRank.ArrayExercises.MinimumBribes(arr);
 
             //Graph grapho = new Graph();
 

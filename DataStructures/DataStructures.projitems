@@ -9,6 +9,7 @@
     <Import_RootNamespace>DataStructures</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Array\OneDimensionalArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Vertex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultidimensionalArrays.cs" />
@@ -29,6 +30,5 @@
     <Folder Include="$(MSBuildThisFileDirectory)Tree\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tree\BST\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tree\RBT\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Array\" />
   </ItemGroup>
 </Project>

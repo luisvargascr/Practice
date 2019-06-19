@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DataStructures.Array
+namespace DataStructures.Arrays
 {
     public class MultidimensionalArray
     {

@@ -89,7 +89,7 @@ namespace HackerRank
                                arr[rows + 1][cols - 1] +
                                arr[rows + 1][cols] +
                                arr[rows + 1][cols + 1];
-                               max = Math.Max(max, temp);
+                    max = Math.Max(max, temp);
                 }
             }
             return max;
@@ -178,5 +178,60 @@ namespace HackerRank
                 Console.WriteLine(bribe);
         }
         #endregion
+
+        public static int MinimumSwaps(int[] arr)
+        {
+            int first = 0, last = arr.Length - 1;
+            int swaps = 0;
+
+            while (first < last)
+            {
+                while (arr[first] == first + 1 && first < last)
+                    first++;
+
+                if (first < last)
+                {
+                    int temp = arr[arr[first] - 1];
+                    arr[arr[first] - 1] = arr[first];
+                    arr[first] = temp;
+                    swaps++;
+                }
+            }
+            return swaps;
+        }
+        //    int middle = arr.Length / 2;
+        //    int swaps = 0;
+        //    int cnt = 0;
+
+        //    while (cnt < arr.Length - 1)
+        //    {
+        //        if (arr[cnt] > arr[middle] && cnt < middle)
+        //        {
+        //            int tmp = arr[cnt];
+        //            arr[cnt] = arr[middle];
+        //            arr[middle] = tmp;
+        //            swaps++;
+        //            continue;
+        //        }
+        //        if (arr[middle] > arr[middle + 1])
+        //        {
+        //            int tmp = arr[middle];
+        //            arr[middle] = arr[middle + 1];
+        //            arr[middle + 1] = tmp;
+        //            swaps++;
+        //            continue;
+        //        }
+        //        if (arr[cnt + 1] < arr[cnt])
+        //        {
+        //            int tmp = arr[cnt];
+        //            arr[cnt] = arr[cnt + 1];
+        //            arr[cnt + 1] = tmp;
+        //            swaps++;
+        //        }
+        //        cnt++;
+        //    }
+        //    return swaps;
+        //}
     }
+        
 }
