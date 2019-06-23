@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructures.Arrays
 {
@@ -35,6 +36,7 @@ namespace DataStructures.Arrays
                 }
                 else
                 {
+
                     NumDic.Add(array[cnt], cnt);
                 }
             }
@@ -49,7 +51,7 @@ namespace DataStructures.Arrays
             {
                 if (arr[low] + arr[high] == sum)
                 {
-                    Console.WriteLine("Pair found at index " + low + " and " + high + string.Format(" ({0}+{1})",arr[low],arr[high]));
+                    Console.WriteLine("Pair found at index " + low + " and " + high + string.Format(" ({0}+{1})", arr[low], arr[high]));
                 }
                 if (arr[low] + arr[high] < sum)
                 {
@@ -124,7 +126,7 @@ namespace DataStructures.Arrays
 
                     foreach (int value in list)
                     {
-                        Console.WriteLine("Subarray [" + (value+1) + "..." + cnt + "]");
+                        Console.WriteLine("Subarray [" + (value + 1) + "..." + cnt + "]");
                     }
                 }
                 if (Subarray.ContainsKey(sum))
@@ -142,5 +144,19 @@ namespace DataStructures.Arrays
             }
         }
         #endregion
+        public static List<int> PlusOne(List<int> A)
+        {
+            List<int> result = new List<int>();
+            int carry = 1;
+            for (int reverseIndex = A.Count - 1; reverseIndex >= 0; reverseIndex--)
+            {
+                int sum = A[reverseIndex] + carry;
+                carry = sum / 10;
+                result.Insert(0, sum % 10);
+            }
+            result.Insert(0, carry);
+            result.RemoveRange(0, result.FindIndex(n => n != 0));
+            return result;
+        }
     }
 }

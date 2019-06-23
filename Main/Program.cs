@@ -10,6 +10,7 @@ using CareerCup;
 using HackerRank;
 using System.Collections.Generic;
 using DataStructures.Graph;
+using System.Linq;
 
 namespace Main
 {
@@ -17,6 +18,18 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            int R = 3;
+            int C = 6;
+            int[,] array = { {  1,  2,  3,  4,  5,  6 },
+                             {  7,  8,  9, 10, 11, 12 },
+                             { 13, 14, 15, 16, 17, 18 } };
+
+            DataStructures.Arrays.MultidimensionalArray.PrintSpiralOrder(R,C,array);
+            Console.ReadLine();
+
+            int[] arr8 = { 0,0,0,0,4,5,6,7 };
+            Console.WriteLine(DataStructures.Arrays.OneDimensionalArray.PlusOne(arr8.ToList()));
+            Console.ReadLine();
 
             int[] arr0 = { 8, 7, 2, 5, 3, 1 };
             DataStructures.Arrays.OneDimensionalArray.FindPairNLogN(arr0, 10);
