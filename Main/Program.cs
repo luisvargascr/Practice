@@ -18,6 +18,15 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            int[] duplicate_array = { 1,2,3,4,4 };
+            DataStructures.Arrays.OneDimensionalArray.FindDuplicateItem(duplicate_array);
+            Console.ReadLine();
+        
+            int[] binary_array = { 1,0,1,0,1,0,0,1 };
+
+            DataStructures.Arrays.OneDimensionalArray.SortBinaryArray(binary_array);
+            Console.ReadLine();
+
             int R = 3;
             int C = 6;
             int[,] array = { {  1,  2,  3,  4,  5,  6 },
@@ -28,7 +37,14 @@ namespace Main
             Console.ReadLine();
 
             int[] arr8 = { 0,0,0,0,4,5,6,7 };
-            Console.WriteLine(DataStructures.Arrays.OneDimensionalArray.PlusOne(arr8.ToList()));
+            IEnumerable<int> ah = DataStructures.Arrays.OneDimensionalArray.PlusOne(arr8.ToList());
+
+            foreach (int i in ah)
+            {
+                Console.Write(i + " ");
+            }
+
+
             Console.ReadLine();
 
             int[] arr0 = { 8, 7, 2, 5, 3, 1 };

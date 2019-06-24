@@ -144,6 +144,7 @@ namespace DataStructures.Arrays
             }
         }
         #endregion
+        #region Plus one - add one to an array with integers
         public static List<int> PlusOne(List<int> A)
         {
             List<int> result = new List<int>();
@@ -158,5 +159,47 @@ namespace DataStructures.Arrays
             result.RemoveRange(0, result.FindIndex(n => n != 0));
             return result;
         }
+        #endregion
+        #region Sort Binary Numbers so that zeroes are first and ones last in array
+        public static void SortBinaryArray(int[] A)
+        {
+            int zeros = 0;
+            for (int i = 0; i < A.Length; i++)
+            {
+                if (A[i] == 0)
+                    zeros++;
+            }
+            int k = 0;
+            while (zeros-- != 0)
+            {
+                A[k++] = 0;
+            }
+            while(k < A.Length)
+            {
+                A[k++] = 1;
+            }
+
+            for (int i = 0; i < A.Length; i++)
+            {
+                Console.Write(A[i] + " ");
+            }
+        }
+        #endregion
+        #region Find duplicate number
+        public static void FindDuplicateItem(int[] array)
+        {
+            var duplicate = new HashSet<int>();
+
+            foreach (int i in array)
+            {
+                if (duplicate.Contains(i))
+                {
+                    Console.WriteLine(string.Format("Duplicate number is {0}.", i));
+                    break;
+                }
+                duplicate.Add(i);
+            }
+        }
+        #endregion
     }
 }
