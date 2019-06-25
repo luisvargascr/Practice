@@ -18,6 +18,12 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            var x12 = CodeChef.EasyCodeChef.DecrementOrIncrement(5);
+            Console.WriteLine(x12);
+            var x22 = CodeChef.EasyCodeChef.DecrementOrIncrement(8);
+            Console.WriteLine(x22);
+            Console.ReadLine();
+
             int[] duplicate_array = { 1,2,3,4,4 };
             DataStructures.Arrays.OneDimensionalArray.FindDuplicateItem(duplicate_array);
             Console.ReadLine();

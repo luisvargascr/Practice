@@ -14,6 +14,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CareerCup", "CareerCup\Care
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HackerRank", "HackerRank\HackerRank.shproj", "{2990CD06-97F6-459C-9F3F-4FA305F3B947}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CodeChef", "CodeChef\CodeChef.shproj", "{8BB287C6-767C-4325-A3E4-D1155FC6C347}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DataStructures\DataStructures.projitems*{1ac43e4c-2be9-416a-8ee8-f9f5aef496ad}*SharedItemsImports = 13
