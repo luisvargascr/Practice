@@ -18,6 +18,14 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            int[] Consecutives = { 2, 0, 2, 1, 4, 3, 1, 0 };
+
+            DataStructures.Arrays.OneDimensionalArray.FindMaxSubArray(Consecutives);
+
+            Console.ReadLine();
+
+
+
             var x12 = CodeChef.EasyCodeChef.DecrementOrIncrement(5);
             Console.WriteLine(x12);
             var x22 = CodeChef.EasyCodeChef.DecrementOrIncrement(8);

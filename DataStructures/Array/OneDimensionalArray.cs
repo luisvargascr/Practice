@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace DataStructures.Arrays
-{
+{ 
     public class OneDimensionalArray
     {
         #region Find Pair with given Sum
@@ -201,5 +201,52 @@ namespace DataStructures.Arrays
             }
         }
         #endregion
+        private static bool IsConsecutive(int[] a, int i, int j, int min, int max)
+        {
+            if (max - min != j - i)
+            {
+                return false;
+            }
+
+            HashSet<int> visited = new HashSet<int>();
+
+            for (int k = i; k <= j; k++)
+            {
+                if (visited.Contains(a[k] - min))
+                {
+                    return false;
+                }
+                visited.Add(a[k] - min);
+            }
+            return true;
+        }
+        public static void FindMaxSubArray(int[]a)
+        {
+            int len = 1;
+            int start = 0, end = 0;
+
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                int min_val = a[i];
+                int max_val = a[i];
+
+                for (int j = i + 1; j < a.Length; j++)
+                {
+                    min_val = Math.Min(min_val, a[j]);
+                    max_val = Math.Max(max_val, a[j]);
+
+                    if (IsConsecutive(a,i,j,min_val,max_val))
+                    {
+                        if (len < max_val - min_val + 1)
+                        {
+                            len = max_val - min_val + 1;
+                            start = i;
+                            end = j;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(String.Format("The largest sub-array is [{0},{1}]", start, end));
+        }
     }
 }
