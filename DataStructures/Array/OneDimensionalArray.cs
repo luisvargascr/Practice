@@ -256,6 +256,7 @@ namespace DataStructures.Arrays
             Dictionary<int, int> map = new Dictionary<int, int>();
 
             map.Add(0, -1);
+
             int sum = 0;
             int max_len = 0;
             int ending_index = -1;
@@ -275,7 +276,71 @@ namespace DataStructures.Arrays
             }
             Console.WriteLine(string.Format("[{0},{1}]",(ending_index - max_len + 1),(ending_index)));
         }
+        #endregion
+        #region Find Maximum Length sub-array having equal number of 0s and 1s
 
+        public static void MaxLengthSubArrayBinary(int[] a)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            map.Add(0, -1);
+
+            int max_len = 0;
+            int ending_index = -1;
+            int sum = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += (a[i] == 0) ? -1 : 1;
+
+                if (!map.ContainsKey(sum))
+                    map.Add(sum,i);
+
+                if (map.ContainsKey(sum) && max_len < i - map[sum])
+                {
+                    max_len = i - map[sum];
+                    ending_index = i;
+                }
+                
+            }
+            if (ending_index != -1)
+            {
+                Console.WriteLine(String.Format("[{0},{1}]",ending_index - max_len + 1, ending_index));
+            }
+        }
+        #endregion
+        #region Sort Array of 0s, 1s, and 2s (Dutch National Flag Problem)
+
+        public static void ThreeWayPartition(int[] a, int end)
+        {
+            int start = 0;
+            int mid = 0;
+            int pivot = 1;
+
+            while (mid <= end)
+            {
+                if (a[mid] < pivot) // For element = 0
+                {
+                    Swap(a, start, mid);
+                    start++;
+                    mid++;
+                }
+                else if (a[mid] > pivot) // For element = 2
+                {
+                    Swap(a, mid, end);
+                    end--;
+                }
+                else // For element = 1
+                {
+                    mid++;
+                }
+            }
+        }
+        private static void Swap(int[] a, int i, int j)
+        {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
 
         #endregion
     }

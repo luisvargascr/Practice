@@ -18,8 +18,20 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            int[] BinArray = { 0, 0, 1, 0, 1, 0, 0 };
             int[] Consecutives = { 2, 0, 2, 1, 4, 3, 1, 0 };
             int[] MaxLength = { 5,6,-5,5,3,5,3,-2,0 };
+            int[] ThreeWay = { 0, 1, 2, 2, 1, 0, 0, 2, 0, 1, 1, 0 };
+
+            DataStructures.Arrays.OneDimensionalArray.ThreeWayPartition(ThreeWay, ThreeWay.Length - 1);
+            foreach (int i in ThreeWay)
+            {
+                Console.Write(i + ",");
+            }
+            Console.ReadLine();
+
+            DataStructures.Arrays.OneDimensionalArray.MaxLengthSubArrayBinary(BinArray);
+            Console.ReadLine();
 
             DataStructures.Arrays.OneDimensionalArray.MaxLengthSubArray(MaxLength, 8);
             Console.ReadLine();
@@ -50,6 +62,7 @@ namespace Main
             int[,] array = { {  1,  2,  3,  4,  5,  6 },
                              {  7,  8,  9, 10, 11, 12 },
                              { 13, 14, 15, 16, 17, 18 } };
+
 
 
             DataStructures.Arrays.MultidimensionalArray.PrintSpiralOrder(R,C,array);
