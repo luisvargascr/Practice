@@ -257,23 +257,23 @@ namespace DataStructures.Arrays
 
             map.Add(0, -1);
             int sum = 0;
-            int len = 0;
+            int max_len = 0;
             int ending_index = -1;
 
             for (int i = 0; i < a.Length; i++)
             {
-                sum += a[i];
+                sum += a[i]; 
 
                 if (!map.ContainsKey(sum))
                     map.Add(sum, i);
 
-                if (map.ContainsKey(sum - s) && len < i - map[sum-s])
+                if (map.ContainsKey(sum - s) && max_len < i - map[sum-s])
                 {
-                    len = i - map[sum - s];
+                    max_len = i - map[sum - s];
                     ending_index = i;
                 }
             }
-            Console.WriteLine(string.Format("[{0},{1}]",(ending_index - len + 1),(ending_index)));
+            Console.WriteLine(string.Format("[{0},{1}]",(ending_index - max_len + 1),(ending_index)));
         }
 
 
