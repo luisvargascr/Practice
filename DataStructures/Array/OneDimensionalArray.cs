@@ -201,6 +201,7 @@ namespace DataStructures.Arrays
             }
         }
         #endregion
+        #region Find maximum array of consecutive values
         private static bool IsConsecutive(int[] a, int i, int j, int min, int max)
         {
             if (max - min != j - i)
@@ -248,5 +249,34 @@ namespace DataStructures.Arrays
             }
             Console.WriteLine(String.Format("The largest sub-array is [{0},{1}]", start, end));
         }
+        #endregion
+        #region Find Maximum Length sub-array having given sum
+        public static void MaxLengthSubArray(int[] a, int s)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+
+            map.Add(0, -1);
+            int sum = 0;
+            int len = 0;
+            int ending_index = -1;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+
+                if (!map.ContainsKey(sum))
+                    map.Add(sum, i);
+
+                if (map.ContainsKey(sum - s) && len < i - map[sum-s])
+                {
+                    len = i - map[sum - s];
+                    ending_index = i;
+                }
+            }
+            Console.WriteLine(string.Format("[{0},{1}]",(ending_index - len + 1),(ending_index)));
+        }
+
+
+        #endregion
     }
 }

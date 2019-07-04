@@ -19,6 +19,10 @@ namespace Main
         public static void Main(string[] args)
         {
             int[] Consecutives = { 2, 0, 2, 1, 4, 3, 1, 0 };
+            int[] MaxLength = { 5,6,-5,5,3,5,3,-2,0 };
+
+            DataStructures.Arrays.OneDimensionalArray.MaxLengthSubArray(MaxLength, 8);
+            Console.ReadLine();
 
             DataStructures.Arrays.OneDimensionalArray.FindMaxSubArray(Consecutives);
 
