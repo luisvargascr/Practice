@@ -18,6 +18,23 @@ namespace Main
     {
         public static void Main(string[] args)
         {
+            int[] first_array = { 1, 4, 7, 8, 10 };
+            int[] second_array = { 2, 3, 9 };
+
+            DataStructures.Arrays.OneDimensionalArray.MergeTwoArrays(first_array, second_array);
+            Console.WriteLine("First Array: ");
+            foreach (int i in first_array)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine("\nSecond Array: ");
+            foreach (int i in second_array)
+            {
+                Console.Write(i + ",");
+            }
+            Console.ReadLine();
+
+
             int[] BinArray = { 0, 0, 1, 0, 1, 0, 0 };
             int[] Consecutives = { 2, 0, 2, 1, 4, 3, 1, 0 };
             int[] MaxLength = { 5,6,-5,5,3,5,3,-2,0 };

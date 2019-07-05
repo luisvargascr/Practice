@@ -343,5 +343,31 @@ namespace DataStructures.Arrays
         }
 
         #endregion
+        #region In-place merge two sorted arrays
+        public static void MergeTwoArrays(int[] x, int[] y)
+        {
+            int len_x = x.Length;
+            int len_y = y.Length;
+
+            for (int i = 0; i < len_x; i++)
+            {
+                if (x[i] > y[0])
+                {
+                    int temp = x[i];
+                    x[i] = y[0];
+                    y[0] = temp;
+
+                    int first = y[0];
+                    int cnt; 
+
+                    for (cnt = 1; cnt < len_y && y[cnt] < first; cnt++)
+                    {
+                        y[cnt - 1] = y[cnt];
+                    }
+                    y[cnt - 1] = first;
+                }
+            }
+        }
+        #endregion
     }
 }
