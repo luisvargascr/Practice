@@ -1,27 +1,38 @@
 ﻿using System;
-using DataStructures;
-using Algorithms;
-using DataStructures.LinkedList;
-using DataStructures.Stack;
-using DataStructures.Queue;
-using DataStructures.BST.Tree;
-using LeetCodePractice;
-using CareerCup;
-using HackerRank;
 using System.Collections.Generic;
 using DataStructures.Graph;
 using System.Linq;
+using DataStructures.Arrays.MultiDimensionalArrays;
+using DataStructures.Arrays.OneDimensionalArrays;
 
 namespace Main
 {
     class MainClass
     {
+        // Constants for the game rules.
+        private const int Heigth = 3;
+        private const int Width = 4;
+        private const uint MaxRuns = 1;
+
         public static void Main(string[] args)
         {
+            int runs = 0;
+            
+            LifeSimulation sim = new LifeSimulation(Heigth, Width);
+
+            while (runs++ < MaxRuns)
+            {
+                sim.DrawAndGrow();
+
+                // Give the user a chance to view the game in a more reasonable speed.
+                System.Threading.Thread.Sleep(100);
+            }
+            Console.ReadLine();
+
             int[] first_array = { 1, 4, 7, 8, 10 };
             int[] second_array = { 2, 3, 9 };
 
-            DataStructures.Arrays.OneDimensionalArray.MergeTwoArrays(first_array, second_array);
+            OneDimensionalArray.MergeTwoArrays(first_array, second_array);
             Console.WriteLine("First Array: ");
             foreach (int i in first_array)
             {
@@ -40,20 +51,20 @@ namespace Main
             int[] MaxLength = { 5,6,-5,5,3,5,3,-2,0 };
             int[] ThreeWay = { 0, 1, 2, 2, 1, 0, 0, 2, 0, 1, 1, 0 };
 
-            DataStructures.Arrays.OneDimensionalArray.ThreeWayPartition(ThreeWay, ThreeWay.Length - 1);
+            OneDimensionalArray.ThreeWayPartition(ThreeWay, ThreeWay.Length - 1);
             foreach (int i in ThreeWay)
             {
                 Console.Write(i + ",");
             }
             Console.ReadLine();
 
-            DataStructures.Arrays.OneDimensionalArray.MaxLengthSubArrayBinary(BinArray);
+            OneDimensionalArray.MaxLengthSubArrayBinary(BinArray);
             Console.ReadLine();
 
-            DataStructures.Arrays.OneDimensionalArray.MaxLengthSubArray(MaxLength, 8);
+            OneDimensionalArray.MaxLengthSubArray(MaxLength, 8);
             Console.ReadLine();
 
-            DataStructures.Arrays.OneDimensionalArray.FindMaxSubArray(Consecutives);
+            OneDimensionalArray.FindMaxSubArray(Consecutives);
 
             Console.ReadLine();
 
@@ -66,12 +77,12 @@ namespace Main
             Console.ReadLine();
 
             int[] duplicate_array = { 1,2,3,4,4 };
-            DataStructures.Arrays.OneDimensionalArray.FindDuplicateItem(duplicate_array);
+            OneDimensionalArray.FindDuplicateItem(duplicate_array);
             Console.ReadLine();
         
             int[] binary_array = { 1,0,1,0,1,0,0,1 };
 
-            DataStructures.Arrays.OneDimensionalArray.SortBinaryArray(binary_array);
+            OneDimensionalArray.SortBinaryArray(binary_array);
             Console.ReadLine();
 
             int R = 3;
@@ -82,11 +93,12 @@ namespace Main
 
 
 
-            DataStructures.Arrays.MultidimensionalArray.PrintSpiralOrder(R,C,array);
+
+            MultiDimensionalArray.PrintSpiralOrder(R,C,array);
             Console.ReadLine();
 
             int[] arr8 = { 0,0,0,0,4,5,6,7 };
-            IEnumerable<int> ah = DataStructures.Arrays.OneDimensionalArray.PlusOne(arr8.ToList());
+            IEnumerable<int> ah = OneDimensionalArray.PlusOne(arr8.ToList());
 
             foreach (int i in ah)
             {
@@ -97,10 +109,10 @@ namespace Main
             Console.ReadLine();
 
             int[] arr0 = { 8, 7, 2, 5, 3, 1 };
-            DataStructures.Arrays.OneDimensionalArray.FindPairNLogN(arr0, 10);
+            OneDimensionalArray.FindPairNLogN(arr0, 10);
             int[] zarr = { 4, 2, -3, -1, 0, 4};
             //Console.WriteLine(string.Format("Can you add zero? {0}.",DataStructures.Arrays.OneDimensionalArray.ZeroSumSubarray(zarr) ? "Yes" : "No"));
-            DataStructures.Arrays.OneDimensionalArray.PrintAllSubarrays(zarr);
+            OneDimensionalArray.PrintAllSubarrays(zarr);
             Console.ReadLine();
             
             int[] arr1 = { 7,1,3,2,4,5,6 };

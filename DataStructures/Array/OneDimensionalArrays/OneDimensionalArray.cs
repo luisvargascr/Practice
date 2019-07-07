@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace DataStructures.Arrays
-{ 
-    public class OneDimensionalArray
+namespace DataStructures.Arrays.OneDimensionalArrays
+{
+    public static class OneDimensionalArray
     {
         #region Find Pair with given Sum
         /*
