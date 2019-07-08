@@ -9,6 +9,7 @@
     <Import_RootNamespace>DataStructures</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\Exercise01.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Vertex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultidimensionalArrays.cs" />
@@ -20,8 +21,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tree\BST\Node.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tree\RBT\Node.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tree\RBT\RBTree.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Array\MultiDimensionalArrays\MultiDimensionalArray.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Array\OneDimensionalArrays\OneDimensionalArray.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\MultiDimensionalArray.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\OneDimensionalArray.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)LinkedList\" />
@@ -30,7 +31,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Tree\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tree\BST\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tree\RBT\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Array\MultiDimensionalArrays\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Array\OneDimensionalArrays\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Arrays\" />
   </ItemGroup>
 </Project>

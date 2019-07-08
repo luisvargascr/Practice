@@ -42,7 +42,7 @@ namespace DataStructures.Arrays.OneDimensionalArrays
         }
         public static void FindPairNLogN(int[] arr, int sum)
         {
-            Array.Sort(arr);
+            System.Array.Sort(arr);
             int low = 0;
             int high = arr.Length - 1;
 

@@ -16,6 +16,11 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            Exercise01 exercise01 = new Exercise01();
+            exercise01.PrintMatrix();
+            Console.ReadLine();
+
+
             int runs = 0;
             
             LifeSimulation sim = new LifeSimulation(Heigth, Width);

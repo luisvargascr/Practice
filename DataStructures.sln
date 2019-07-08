@@ -24,9 +24,11 @@ Global
 		CareerCup\CareerCup.projitems*{67be07b3-bdb5-4d8f-8b17-b9d7ecd304fa}*SharedItemsImports = 13
 		Algorithms\Algorithms.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
 		CareerCup\CareerCup.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
+		CodeChef\CodeChef.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
 		DataStructures\DataStructures.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
 		HackerRank\HackerRank.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
 		LeetCodePractice\LeetCodePractice.projitems*{85d1e1e3-56c2-46eb-b91e-316704db7892}*SharedItemsImports = 4
+		CodeChef\CodeChef.projitems*{8bb287c6-767c-4325-a3e4-d1155fc6c347}*SharedItemsImports = 13
 		LeetCodePractice\LeetCodePractice.projitems*{d4612424-6c4e-48b5-8135-046ee4f5aa15}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
