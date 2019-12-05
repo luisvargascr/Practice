@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -34,6 +34,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitManipulation\BitManipulation.csproj">
+      <Project>{fe1c5cd3-a314-4aa6-8b90-5b4bc651ade5}</Project>
+      <Name>BitManipulation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\CodeChef\CodeChef.projitems" Label="Shared" Condition="Exists('..\CodeChef\CodeChef.projitems')" />
   <Import Project="..\HackerRank\HackerRank.projitems" Label="Shared" Condition="Exists('..\HackerRank\HackerRank.projitems')" />

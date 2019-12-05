@@ -4,6 +4,7 @@ using DataStructures.Graph;
 using System.Linq;
 using DataStructures.Arrays.MultiDimensionalArrays;
 using DataStructures.Arrays.OneDimensionalArrays;
+using BitManipulation;
 
 namespace Main
 {
@@ -16,6 +17,93 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            BitManipulator BitMan = new BitManipulator();
+            int num1 = 8;
+            int num2 = 19;
+            BitMan.SwapNumbers(ref num1, ref num2);
+            var ww = BitMan.OppositeSignNumbers(9,-19);
+            var wv = BitMan.OppositeSignNumbers(8, 6);
+
+            int new_original_num = 12;
+
+            int result = BitMan.UpdateBit(new_original_num, 4, true);
+            Console.WriteLine(result);
+
+            int original_num = 8;
+            Console.WriteLine("Original number is " + original_num);
+
+            int num = BitMan.SetBit(original_num, 4);
+            Console.WriteLine("New number is " + num);
+
+            bool it = BitMan.GetBit(num, 4);
+            Console.WriteLine("Bit value is " + it);
+
+            num = BitMan.ClearBit(num, 4);
+            Console.WriteLine("New number is " + num);
+
+            it = BitMan.GetBit(num, 4);
+            Console.WriteLine("Bit value is " + it);
+
+            Console.ReadLine();
+
+            BitMan.IsUnique("luis");
+            Console.ReadLine();
+
+
+
+
+            int[,] exp = { { 0, 1, 1, 0, 1 }, { 0, 1, 0, 1, 0 }, { 0, 0, 0, 0, 1 }, { 0, 1, 0, 0, 0 } };
+            int val = Zombies.MinDays(exp);
+
+
+            int n1 = 2;
+            
+            List<List<int>> items = new List<List<int>>();
+            items.Add(new List<int>(new int[3] { 1, 0, 5 }));
+            items.Add(new List<int>(new int[3] { 1, 1, 7 }));
+            items.Add(new List<int>(new int[3] { 1, 0, 3 }));
+            items.Add(new List<int>(new int[3] { 2, 1, 0 }));
+            items.Add(new List<int>(new int[3] { 2, 1, 1 }));
+
+            ArrayExercises.dynamicArray(n1, items);
+            Console.ReadLine();
+
+
+
+
+            //int[] array_x = { 1, 2, 3, 4, 5, 6, 7 };
+            //ArrayExercises.RotateArray(array_x, 3);
+            int[] array_a = { 1,1,1 };
+            int[] array_b = { 1, 2, 3, 4 };
+            int[] array_c = { 4, 1, 2, 3 };
+            int[] array_d = { 1, 2, 4, 3 };
+            int[] array_e = { 1, 2, 5, 4, 5 };
+            int[] array_f = { 1, 2, 5, 5, 6 };
+            int[] array_g = { 4, 2, 1 };
+
+            // 1,2,3,4 <= true
+            // 4,1,2,3 <= true
+            // 1,2,4,3 <= true
+            // 1,2,5,4,5 <= true
+            // 1,2,5,5,6 <= true;
+
+
+            var a1 = ArrayExercises.CheckPossibility(array_a);
+            var b1 = ArrayExercises.CheckPossibility(array_b);
+            var c1 = ArrayExercises.CheckPossibility(array_c);
+            var d1 = ArrayExercises.CheckPossibility(array_d);
+            var e1 = ArrayExercises.CheckPossibility(array_e);
+            var f1 = ArrayExercises.CheckPossibility(array_f);
+            var g1 = ArrayExercises.CheckPossibility(array_g);
+
+            Console.ReadLine();
+
+            int[] x_f = { 0, 2, 0, 3, 0, 5, 6, 0, 0 };
+            int[] y_f = { 1, 8, 9, 10, 15 };
+
+            MergeArraysExercise.Rearrange(x_f, y_f);
+            Console.ReadLine();
+
             Exercise01 exercise01 = new Exercise01();
             exercise01.PrintMatrix();
             Console.ReadLine();

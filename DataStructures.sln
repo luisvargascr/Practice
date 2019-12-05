@@ -16,6 +16,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HackerRank", "HackerRank\Ha
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CodeChef", "CodeChef\CodeChef.shproj", "{8BB287C6-767C-4325-A3E4-D1155FC6C347}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitManipulation", "BitManipulation\BitManipulation.csproj", "{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DataStructures\DataStructures.projitems*{1ac43e4c-2be9-416a-8ee8-f9f5aef496ad}*SharedItemsImports = 13
@@ -32,14 +34,26 @@ Global
 		LeetCodePractice\LeetCodePractice.projitems*{d4612424-6c4e-48b5-8135-046ee4f5aa15}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Debug|x86.ActiveCfg = Debug|x86
 		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Debug|x86.Build.0 = Debug|x86
+		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Release|Any CPU.ActiveCfg = Release|x86
 		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Release|x86.ActiveCfg = Release|x86
 		{85D1E1E3-56C2-46EB-B91E-316704DB7892}.Release|x86.Build.0 = Release|x86
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Debug|x86.Build.0 = Debug|Any CPU
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE1C5CD3-A314-4AA6-8B90-5B4BC651ADE5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

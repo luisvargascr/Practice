@@ -10,6 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\Exercise01.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\Zombies.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\MergeArraysExercise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\ArrayExercises.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\WateringFlowers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Vertex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultidimensionalArrays.cs" />
@@ -31,6 +35,5 @@
     <Folder Include="$(MSBuildThisFileDirectory)Tree\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tree\BST\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tree\RBT\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Arrays\" />
   </ItemGroup>
 </Project>
