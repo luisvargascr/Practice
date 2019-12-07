@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BitManipulation
 {
@@ -76,6 +77,54 @@ namespace BitManipulation
             }
             Console.WriteLine("String has unique characters");
             return true;
+        }
+        public int MissingNumber(IList<int> nums)
+        {
+            int missing = 0;
+
+            for (int i = 0; i < nums.Count; ++i)
+            {
+                missing ^= i;
+                missing ^= nums[i];
+            }
+            return missing ^= nums.Count;
+        }
+        public int BitInsertion(int num1, int num2, int i, int j)
+        {
+            int N = num1;
+            int M = num2;
+
+            Console.WriteLine(string.Format("Num 1 = '{0}'.", Convert.ToString(num1, 2)));
+            Console.WriteLine(string.Format("Num 2 = '{0}'.", Convert.ToString(num2, 2)));
+            Console.WriteLine(string.Format("i = '{0}'.", i)); // 2
+            Console.WriteLine(string.Format("j = '{0}'.", j)); // 6
+
+            int AllOnes = ~0; // 11111111111111111111111111111111
+            Console.WriteLine(string.Format("All 1s = '{0}'.", Convert.ToString(AllOnes,2)));
+
+            int left = AllOnes << (j + 1); // 111111111111111111111110000000 
+            Console.WriteLine(string.Format("Left = '{0}'.", Convert.ToString(left, 2)));
+
+            int v = (1 << i);
+            Console.WriteLine(string.Format("v = '{0}'.", Convert.ToString(v, 2)));
+
+            int right = ((1 << i) - 1); // 11
+            Console.WriteLine(string.Format("Right = '{0}'.", Convert.ToString(right, 2)));
+
+            int mask = left | right; // 111111111111111111111110000011
+            Console.WriteLine(string.Format("Mask = '{0}'.", Convert.ToString(mask, 2)));
+
+            int cleared = num1 & mask; // 10000000000
+            Console.WriteLine(string.Format("Cleared = '{0}'.", Convert.ToString(cleared, 2)));
+
+            int shifted = num2 << i; // 1001100
+            Console.WriteLine(string.Format("Shifted = '{0}'.", Convert.ToString(shifted, 2)));
+
+            int new_num = (cleared | shifted); // 10001001100
+
+            Console.WriteLine(string.Format("Result = '{0}'.", Convert.ToString(new_num, 2)));
+
+            return new_num;
         }
     }
 }

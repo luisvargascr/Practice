@@ -18,6 +18,12 @@ namespace Main
         public static void Main(string[] args)
         {
             BitManipulator BitMan = new BitManipulator();
+
+            int Missing = BitMan.MissingNumber(new List<int>() { 1, 2, 4, 5, 6, 7 });
+
+            int Insertion = BitMan.BitInsertion(1024, 19, 2, 6);
+            Console.WriteLine(string.Format("Insertion value = {0}.", Insertion));
+
             int num1 = 8;
             int num2 = 19;
             BitMan.SwapNumbers(ref num1, ref num2);
