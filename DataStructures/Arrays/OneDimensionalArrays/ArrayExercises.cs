@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataStructures.Arrays.OneDimensionalArrays
 {
-    public static class ArrayExercises
+    public static partial class ArrayExercises
     {
         public static int CountSubstrings(string s)
         {

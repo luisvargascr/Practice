@@ -5,6 +5,71 @@ namespace DataStructures.Arrays.OneDimensionalArrays
 {
     public static class OneDimensionalArray
     {
+          /*
+         
+           There are n people whose IDs go from 0 to n - 1 and each person belongs exactly to one group.Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people's IDs each group includes.
+
+            You can return any solution in any order and the same applies for IDs.Also, it is guaranteed that there exists at least one solution. 
+
+            Example 1:
+
+            Input: groupSizes = [3, 3, 3, 3, 3, 1, 3]
+            Output: [[5], [0,1,2], [3,4,6]]
+            Explanation: 
+            Other possible solutions are[[2,1,6],[5],[0,4,3]] and[[5],[0,6,2],[4,3,1]].
+            Example 2:
+
+            Input: groupSizes = [2,1,3,3,3,2]
+                    Output: [[1],[0,5],[2,3,4]]
+ 
+
+            Constraints:
+
+            groupSizes.length == n
+            1 <= n <= 500
+            1 <= groupSizes[i] <= n
+        */
+
+        public static IList<IList<int>> GroupThePeople(int[] groupSizes)
+        {
+            //Here we declare the list that will contain our result
+            IList<IList<int>> groups = new List<IList<int>>();
+
+            //We need a list where the id's will be stored, and the this list will be added to the 'groups'
+            List<int>[] buildingGroups = new List<int>[groupSizes.Length + 1];
+
+            //The algorithm works this way:
+            //groupSizes = 3,3,3,3,3,1,3
+            //It means that the person ID 0 belongs to a group containig a total of 3 people,
+            //So he can form a group with id 1 and 2 cuz they also belong to a group of 3 people.
+            //We add id 0, 1 and 2 to the list with ID 3 (the group size).
+            //Everytime we add a person to a group, we check if the group is complete.
+            //So, when we add 2, the group is complete because the list with ID 3 already
+            //contains 3 elements, so we add this group of 3 elements to the 'groups' lists, and make
+            //it empty so, if there will be other people belonging to a group of 3 people, the
+            //list with ID 3 will be empty.
+
+            for (int i = 0; i < groupSizes.Length; i++)
+            {
+                //We check if the list we are looking for is initialized
+                if (buildingGroups[groupSizes[i]] == null) buildingGroups[groupSizes[i]] = new List<int>();
+
+                //We add the ID of the person to the list which ID is his group's size
+                buildingGroups[groupSizes[i]].Add(i);
+
+                //Check if the group has been formed
+                if (buildingGroups[groupSizes[i]].Count == groupSizes[i])
+                {
+                    //We add the current formed group to the list containing the result
+                    groups.Add(buildingGroups[groupSizes[i]]);
+                    buildingGroups[groupSizes[i]] = null;
+                }
+            }
+            return groups;
+            //If you have some improvements, leave them in the comment section below <3
+            //If it was useful for you, don't forget to smash that sexy upvote button
+        }
+
         #region Find Pair with given Sum
         /*
          Given an unsorted array of integers, find a pair with given sum in it.

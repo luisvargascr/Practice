@@ -3,6 +3,8 @@ namespace Algorithms
 {
     public static class MergeSortAlgorithm
     {
+        // Time  = O(n lg n)
+        // Space = O(n)
         private static void Merge(int[] input, int left, int middle, int right)
         {
             int[] leftArray  = new int[middle - left + 1];
