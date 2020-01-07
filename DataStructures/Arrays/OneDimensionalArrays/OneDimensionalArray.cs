@@ -1,35 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructures.Arrays.OneDimensionalArrays
 {
     public static class OneDimensionalArray
     {
-          /*
-         
-           There are n people whose IDs go from 0 to n - 1 and each person belongs exactly to one group.Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people's IDs each group includes.
+        # region Find Duplicate
 
-            You can return any solution in any order and the same applies for IDs.Also, it is guaranteed that there exists at least one solution. 
+        public static int FindDuplicate(int[] array)
+        {
+            int ActualSum = array.Sum();
+            int ExpectedSum = array.Length * (array.Length - 1) / 2;
 
-            Example 1:
+            return ActualSum - ExpectedSum;
+        }
+        #endregion
+        #region Group the people
+        /*
 
-            Input: groupSizes = [3, 3, 3, 3, 3, 1, 3]
-            Output: [[5], [0,1,2], [3,4,6]]
-            Explanation: 
-            Other possible solutions are[[2,1,6],[5],[0,4,3]] and[[5],[0,6,2],[4,3,1]].
-            Example 2:
+         There are n people whose IDs go from 0 to n - 1 and each person belongs exactly to one group.Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people's IDs each group includes.
 
-            Input: groupSizes = [2,1,3,3,3,2]
-                    Output: [[1],[0,5],[2,3,4]]
- 
+          You can return any solution in any order and the same applies for IDs.Also, it is guaranteed that there exists at least one solution. 
 
-            Constraints:
+          Example 1:
 
-            groupSizes.length == n
-            1 <= n <= 500
-            1 <= groupSizes[i] <= n
-        */
+          Input: groupSizes = [3, 3, 3, 3, 3, 1, 3]
+          Output: [[5], [0,1,2], [3,4,6]]
+          Explanation: 
+          Other possible solutions are[[2,1,6],[5],[0,4,3]] and[[5],[0,6,2],[4,3,1]].
+          Example 2:
 
+          Input: groupSizes = [2,1,3,3,3,2]
+                  Output: [[1],[0,5],[2,3,4]]
+
+
+          Constraints:
+
+          groupSizes.length == n
+          1 <= n <= 500
+          1 <= groupSizes[i] <= n
+      */
         public static IList<IList<int>> GroupThePeople(int[] groupSizes)
         {
             //Here we declare the list that will contain our result
@@ -69,7 +80,7 @@ namespace DataStructures.Arrays.OneDimensionalArrays
             //If you have some improvements, leave them in the comment section below <3
             //If it was useful for you, don't forget to smash that sexy upvote button
         }
-
+        #endregion
         #region Find Pair with given Sum
         /*
          Given an unsorted array of integers, find a pair with given sum in it.
@@ -167,7 +178,7 @@ namespace DataStructures.Arrays.OneDimensionalArrays
 
             For example:
 
-            Input: { 3,4,-7,3,1,-4,-2,-2 }
+            Input: { -3,4,-7,3,-1,-4,-2,-2, 0 }
 
             Sub-Arrays with 0 Sum are
 
@@ -190,7 +201,7 @@ namespace DataStructures.Arrays.OneDimensionalArrays
 
                     foreach (int value in list)
                     {
-                        Console.WriteLine("Subarray [" + (value + 1) + "..." + cnt + "]");
+                        Console.WriteLine("Subarray [" + (value + 1) + "..." + cnt + "]\n");
                     }
                 }
                 if (Subarray.ContainsKey(sum))
@@ -204,6 +215,45 @@ namespace DataStructures.Arrays.OneDimensionalArrays
                         cnt
                     };
                     Subarray.Add(sum, newList);
+                }
+            }
+        }
+        #endregion
+        #region Find subarrays with given sum in an array
+
+        public static void FindSubarrayForGivenSum (int[] array, int desiredSum)
+        {
+            Dictionary<int, List<int>> SubArray = new Dictionary<int, List<int>>();
+            SubArray.Add(0, new List<int> { -1 });
+            int SumSoFar = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                SumSoFar += array[i];
+
+                if (SubArray.ContainsKey(SumSoFar - desiredSum))
+                {
+                    List<int> ListNums = SubArray[SumSoFar - desiredSum];
+
+                    for (int j = 0; j < ListNums.Count; j++)
+                    {
+                         Console.Write(string.Format("Subarray [{0}..{1}]\n", ListNums[j] + 1,i));
+                    }
+                }
+                else
+                {
+                    if (SubArray.ContainsKey(SumSoFar))
+                    {
+                        SubArray[SumSoFar].Add(i);
+                    }
+                    else
+                    {
+                        var newList = new List<int>
+                        {
+                            i
+                        };
+                        SubArray.Add(SumSoFar, newList);
+                    }
                 }
             }
         }

@@ -15,6 +15,13 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            int[] G = { 1, 2, 3, 3, 4, 5 };
+            Console.WriteLine(OneDimensionalArray.FindDuplicate(G));
+            Console.ReadLine();
+
+            int[] arrX1 = { 3, 4, -7, 1, 3, 3, 1, -4 };
+            OneDimensionalArray.FindSubarrayForGivenSum(arrX1, 7);
+
             var y1 = new int[] { 3, 1, 7, 5, 4, 9, 2 };
             InsertionSortAlgorithm.InsertionSortBitWise(y1);
             PrintResults(y1);
