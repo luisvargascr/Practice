@@ -15,6 +15,28 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            //int[] arr = { 88, 23, 65, 2, 89, 7, 3, 1, 90, 4, 4 };
+            int[] arr = { 8, 3, 2, 7, 9, 1, 4 };
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Before HeapSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.ReadLine();
+            HeapSortAlgorithm.HeapSort(arr);
+
+            Console.WriteLine("\n");
+            Console.WriteLine("After HeapSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine("\n");
+            Console.ReadLine();
+
+
             int[] G = { 1, 2, 3, 3, 4, 5 };
             Console.WriteLine(OneDimensionalArray.FindDuplicate(G));
             Console.ReadLine();

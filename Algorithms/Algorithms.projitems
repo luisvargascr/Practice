@@ -9,6 +9,7 @@
     <Import_RootNamespace>Algorithms</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)HeapSortAlgorithm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InsertionSortAlgorithm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MergeSortAlgorithm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuickSortAlgorithm.cs" />
