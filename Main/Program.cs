@@ -16,7 +16,8 @@ namespace Main
         public static void Main(string[] args)
         {
             //int[] arr = { 88, 23, 65, 2, 89, 7, 3, 1, 90, 4, 4 };
-            int[] arr = { 8, 3, 2, 7, 9, 1, 4 };
+            int[] arr = { 8, 3, 2, 7, 9, 1, 4};
+            MergeSortAlgorithm.MergeSort(arr,0, arr.Length - 1);
 
             Console.WriteLine("\n");
             Console.WriteLine("Before HeapSort:");

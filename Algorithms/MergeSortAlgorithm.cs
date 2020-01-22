@@ -1,44 +1,48 @@
-﻿using System;
-namespace Algorithms
+﻿namespace Algorithms
 {
     public static class MergeSortAlgorithm
     {
         // Time  = O(n lg n)
         // Space = O(n)
-        private static void Merge(int[] input, int left, int middle, int right)
+
+        private static void Merge(int[] numbers, int left, int middle, int right)
         {
-            int[] leftArray  = new int[middle - left + 1];
-            int[] rightArray = new int[right - middle];
+            int[] tmp_array = new int[numbers.Length];
 
-            Array.Copy(input, left, leftArray, 0, middle - left + 1);
-            Array.Copy(input, middle + 1, rightArray, 0, right - middle);
-
-            int left_cnt = 0;
-            int right_cnt = 0;
-
-            for (int cnt = left; cnt < right + 1; cnt++)
+            // Copy both parts into the helper array
+            for (int cnt = left; cnt <= right; cnt++)
             {
-                if (left_cnt == leftArray.Length)
+                tmp_array[cnt] = numbers[cnt];
+            }
+            int left_pointer = left;
+            int middle_index = middle + 1;
+            int left_index   = left;
+
+            // Copy the smallest values from either the left or the right side back
+            // to the original array
+            while (left_pointer <= middle && middle_index <= right)
+            {
+                if (tmp_array[left_pointer] <= tmp_array[middle_index])
                 {
-                    input[cnt] = rightArray[right_cnt];
-                    right_cnt++;
-                }
-                else if (right_cnt == rightArray.Length)
-                {
-                    input[cnt] = leftArray[left_cnt];
-                    left_cnt++;
-                }
-                else if (leftArray[left_cnt] <= rightArray[right_cnt])
-                {
-                    input[cnt] = leftArray[left_cnt];
-                    left_cnt++;
+                    numbers[left_index] = tmp_array[left_pointer];
+                    left_pointer++;
                 }
                 else
                 {
-                    input[cnt] = rightArray[right_cnt];
-                    right_cnt++;
+                    numbers[left_index] = tmp_array[middle_index];
+                    middle_index++;
                 }
+                left_index++;
             }
+            // Copy the rest of the left side of the array into the target array
+            while (left_pointer <= middle)
+            {
+                numbers[left_index] = tmp_array[left_pointer];
+                left_index++;
+                left_pointer++;
+            }
+            // Since we are sorting in-place any leftover elements from the right side
+            // are already at the right position.
         }
         public static void MergeSort(int[] input, int left, int right)
         {
@@ -48,7 +52,6 @@ namespace Algorithms
 
                 MergeSort(input, left, middle);
                 MergeSort(input, middle + 1, right);
-
                 Merge(input, left, middle, right);
             }
         }
