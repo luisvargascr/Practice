@@ -5,39 +5,39 @@
         // Time  = O(n lg n)
         // Space = O(n)
 
-        private static void Merge(int[] numbers, int left, int middle, int right)
+        private static void Merge(int[] arr, int left, int middle, int right)
         {
-            int[] tmp_array = new int[numbers.Length];
+            int[] tmp_array = new int[arr.Length];
 
             // Copy both parts into the helper array
-            for (int cnt = left; cnt <= right; cnt++)
+            for (int i = left; i <= right; i++)
             {
-                tmp_array[cnt] = numbers[cnt];
+                tmp_array[i] = arr[i];
             }
-            int left_pointer = left;
-            int middle_index = middle + 1;
             int left_index   = left;
+            int left_pointer = left;
+            int pivot = middle + 1;
 
             // Copy the smallest values from either the left or the right side back
             // to the original array
-            while (left_pointer <= middle && middle_index <= right)
+            while (left_pointer <= middle && pivot <= right)
             {
-                if (tmp_array[left_pointer] <= tmp_array[middle_index])
+                if (tmp_array[left_pointer] <= tmp_array[pivot])
                 {
-                    numbers[left_index] = tmp_array[left_pointer];
+                    arr[left_index] = tmp_array[left_pointer];
                     left_pointer++;
                 }
                 else
                 {
-                    numbers[left_index] = tmp_array[middle_index];
-                    middle_index++;
+                    arr[left_index] = tmp_array[pivot];
+                    pivot++;
                 }
                 left_index++;
             }
             // Copy the rest of the left side of the array into the target array
             while (left_pointer <= middle)
             {
-                numbers[left_index] = tmp_array[left_pointer];
+                arr[left_index] = tmp_array[left_pointer];
                 left_index++;
                 left_pointer++;
             }
