@@ -13,32 +13,32 @@
             for (int i = left; i <= right; i++)
                 tmp[i] = arr[i];
 
-            int left_org_arr = left;
-            int left_tmp_arr = left;
+            int left_arr = left;
+            int left_tmp = left;
             int pivot = middle + 1;
 
             // Copy the smallest values from either the left or the right side back
             // to the original array
-            while (left_tmp_arr <= middle && pivot <= right)
+            while (left_tmp <= middle && pivot <= right)
             {
-                if (tmp[left_tmp_arr] <= tmp[pivot])
+                if (tmp[left_tmp] <= tmp[pivot])
                 {
-                    arr[left_org_arr] = tmp[left_tmp_arr];
-                    left_tmp_arr++;
+                    arr[left_arr] = tmp[left_tmp];
+                    left_tmp++;
                 }
                 else
                 {
-                    arr[left_org_arr] = tmp[pivot];
+                    arr[left_arr] = tmp[pivot];
                     pivot++;
                 }
-                left_org_arr++;
+                left_arr++;
             }
             // Copy the rest of the left side of the array into the target array
-            while (left_tmp_arr <= middle)
+            while (left_tmp <= middle)
             {
-                arr[left_org_arr] = tmp[left_tmp_arr];
-                left_org_arr++;
-                left_tmp_arr++;
+                arr[left_arr] = tmp[left_tmp];
+                left_arr++;
+                left_tmp++;
             }
             // Since we are sorting in-place any leftover elements from the right side
             // are already at the right position.
