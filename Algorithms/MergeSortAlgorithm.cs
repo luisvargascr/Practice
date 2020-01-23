@@ -7,39 +7,38 @@
 
         private static void Merge(int[] arr, int left, int middle, int right)
         {
-            int[] tmp_array = new int[arr.Length];
+            int[] tmp = new int[arr.Length];
 
             // Copy both parts into the helper array
             for (int i = left; i <= right; i++)
-            {
-                tmp_array[i] = arr[i];
-            }
-            int left_index   = left;
-            int left_pointer = left;
+                tmp[i] = arr[i];
+
+            int left_org_arr = left;
+            int left_tmp_arr = left;
             int pivot = middle + 1;
 
             // Copy the smallest values from either the left or the right side back
             // to the original array
-            while (left_pointer <= middle && pivot <= right)
+            while (left_tmp_arr <= middle && pivot <= right)
             {
-                if (tmp_array[left_pointer] <= tmp_array[pivot])
+                if (tmp[left_tmp_arr] <= tmp[pivot])
                 {
-                    arr[left_index] = tmp_array[left_pointer];
-                    left_pointer++;
+                    arr[left_org_arr] = tmp[left_tmp_arr];
+                    left_tmp_arr++;
                 }
                 else
                 {
-                    arr[left_index] = tmp_array[pivot];
+                    arr[left_org_arr] = tmp[pivot];
                     pivot++;
                 }
-                left_index++;
+                left_org_arr++;
             }
             // Copy the rest of the left side of the array into the target array
-            while (left_pointer <= middle)
+            while (left_tmp_arr <= middle)
             {
-                arr[left_index] = tmp_array[left_pointer];
-                left_index++;
-                left_pointer++;
+                arr[left_org_arr] = tmp[left_tmp_arr];
+                left_org_arr++;
+                left_tmp_arr++;
             }
             // Since we are sorting in-place any leftover elements from the right side
             // are already at the right position.
