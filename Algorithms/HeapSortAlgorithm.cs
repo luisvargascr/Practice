@@ -2,6 +2,8 @@
 {
     public static class HeapSortAlgorithm
     {
+        // Time  = O(n log n)
+        // Space = O(n)
         public static void HeapSort(int[] arr)
         {
             int arr_length = arr.Length;

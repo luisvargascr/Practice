@@ -13,5 +13,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)InsertionSortAlgorithm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MergeSortAlgorithm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuickSortAlgorithm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SelectionSortAlgorithm.cs" />
   </ItemGroup>
 </Project>

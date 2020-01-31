@@ -15,9 +15,27 @@ namespace Main
 
         public static void Main(string[] args)
         {
-            //int[] arr = { 88, 23, 65, 2, 89, 7, 3, 1, 90, 4, 4 };
-            int[] arr = { 8, 3, 2, 7, 9, 1, 4};
-            MergeSortAlgorithm.MergeSort(arr,0, arr.Length - 1);
+            int[] arr = { 8, 3, 2, 7, 9, 1, 4, 1};
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Before SelectionSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.ReadLine();
+            SelectionSortAlgorithm.SelectionSort(arr);
+
+            Console.WriteLine("\n");
+            Console.WriteLine("After SelectionSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine("\n");
+            Console.ReadLine();
+
+            arr = new int[] { 8, 3, 2, 7, 9, 1, 4, 1};
 
             Console.WriteLine("\n");
             Console.WriteLine("Before HeapSort:");
@@ -30,6 +48,26 @@ namespace Main
 
             Console.WriteLine("\n");
             Console.WriteLine("After HeapSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine("\n");
+            Console.ReadLine();
+
+            arr = new int[] { 4, 88, 23, 65, 2, 89, 7, 3, 1, 90, 4 };
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Before MergeSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.ReadLine();
+            MergeSortAlgorithm.MergeSort(arr, 0, arr.Length - 1);
+
+            Console.WriteLine("\n");
+            Console.WriteLine("After MergeSort:");
             foreach (int i in arr)
             {
                 Console.Write(i + ",");

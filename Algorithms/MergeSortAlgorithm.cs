@@ -2,7 +2,7 @@
 {
     public static class MergeSortAlgorithm
     {
-        // Time  = O(n lg n)
+        // Time  = O(n log n)
         // Space = O(n)
 
         private static void Merge(int[] arr, int left, int middle, int right)
