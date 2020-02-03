@@ -5,17 +5,14 @@ namespace Algorithms
     {
         // Time  = O(n log n), worse O(n^2)
         // Space = O(n log n)
+
         public static void QuickSort(int[] arr, int left, int right)
         {
             if (left < right)
             {
                 int pivot = Partition(arr, left, right);
-
-                if (pivot > 1)
-                    QuickSort(arr, left, pivot - 1);
-
-                if (pivot + 1 < right)
-                    QuickSort(arr, pivot + 1, right);
+                QuickSort(arr, left, pivot);
+                QuickSort(arr, pivot + 1, right);
             }
         }
         private static int Partition(int[] arr, int left, int right)
@@ -30,17 +27,14 @@ namespace Algorithms
                 while (arr[right] > pivot)
                     right--;
 
-                if (left < right)
-                {
-                    if (arr[left] == arr[right])
-                        return right;
-
-                    int tmp = arr[left];
-                    arr[left] = arr[right];
-                    arr[right] = tmp;
-                }
-                else
+                if (left >= right)
                     return right;
+
+                int tmp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = tmp;
+                left++;
+                right--;
             }
         }
     }

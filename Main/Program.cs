@@ -75,7 +75,7 @@ namespace Main
             Console.WriteLine("\n");
             Console.ReadLine();
 
-            arr = new int[] { 8, 3, 2, 7, 9, 1, 4 };
+            arr = new int[] { 8, 3, 2, 7, 9, 1, 4, 1 };
 
             Console.WriteLine("\n");
             Console.WriteLine("Before QuickSort:");
