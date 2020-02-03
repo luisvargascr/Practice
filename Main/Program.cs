@@ -75,6 +75,26 @@ namespace Main
             Console.WriteLine("\n");
             Console.ReadLine();
 
+            arr = new int[] { 8, 3, 2, 7, 9, 1, 4 };
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Before QuickSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.ReadLine();
+            QuickSortAlgorithm.QuickSort(arr, 0, arr.Length - 1);
+
+            Console.WriteLine("\n");
+            Console.WriteLine("After QuickSort:");
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine("\n");
+            Console.ReadLine();
+
 
             int[] G = { 1, 2, 3, 3, 4, 5 };
             Console.WriteLine(OneDimensionalArray.FindDuplicate(G));
