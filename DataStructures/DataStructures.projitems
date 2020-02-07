@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\Exercise01.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\JaggedArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\LeetCode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\Zombies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\ArrayExercises2.cs" />

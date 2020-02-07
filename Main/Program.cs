@@ -15,7 +15,17 @@ namespace Main
 
         public static void Main(string[] args)
         {
-            int[] arr = { 8, 3, 2, 7, 9, 1, 4, 1};
+            // [[11,25,66,1,69,7],[23,55,17,45,15,52],[75,31,36,44,58,8],[22,27,33,25,68,4],[84,28,14,11,5,50]]
+            int[][] matrix = new int[5][] { new int[] { 11, 25, 66, 1, 69, 7 }, new int[] { 23, 55, 17, 45, 15, 52 }, new int[] { 75, 31, 36, 44, 58, 8 }, new int[] { 22, 27, 33, 25, 68, 4 }, new int[] { 84, 28, 14, 11, 5, 50 } };
+
+            Console.WriteLine("Original Matrix:");
+            PrintMatrix(matrix);
+            JaggedArray.DiagonalSort(matrix);
+            Console.WriteLine("\nDiagonally Sorted Matrix:");
+            PrintMatrix(matrix);
+            Console.ReadLine();
+
+            int[] arr = { 8, 3, 2, 7, 9, 1, 4, 1 };
 
             Console.WriteLine("\n");
             Console.WriteLine("Before SelectionSort:");
@@ -35,7 +45,7 @@ namespace Main
             Console.WriteLine("\n");
             Console.ReadLine();
 
-            arr = new int[] { 8, 3, 2, 7, 9, 1, 4, 1};
+            arr = new int[] { 8, 3, 2, 7, 9, 1, 4, 1 };
 
             Console.WriteLine("\n");
             Console.WriteLine("Before HeapSort:");
@@ -114,11 +124,11 @@ namespace Main
 
 
             LeetCode lc = new LeetCode();
-            var groupSizes = new int[] { 3, 3, 3, 3, 3, 1, 3  };
+            var groupSizes = new int[] { 3, 3, 3, 3, 3, 1, 3 };
             var List111 = OneDimensionalArray.GroupThePeople(groupSizes);
 
 
-            int[][] indices = new int[3][] { new int[]{ 0, 0, 0 }, new int[]{ 0, 0, 0 }, new int[]{ 0, 0, 0 } };
+            int[][] indices = new int[3][] { new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 } };
             lc.OddCells(2, 3, indices);
 
 
@@ -168,7 +178,7 @@ namespace Main
 
 
             //int n1 = 2;
-            
+
             //List<List<int>> items = new List<List<int>>();
             //items.Add(new List<int>(new int[3] { 1, 0, 5 }));
             //items.Add(new List<int>(new int[3] { 1, 1, 7 }));
@@ -221,7 +231,7 @@ namespace Main
 
 
             //int runs = 0;
-            
+
             //LifeSimulation sim = new LifeSimulation(Heigth, Width);
 
             //while (runs++ < MaxRuns)
@@ -283,7 +293,7 @@ namespace Main
             //int[] duplicate_array = { 1,2,3,4,4 };
             //OneDimensionalArray.FindDuplicateItem(duplicate_array);
             //Console.ReadLine();
-        
+
             //int[] binary_array = { 1,0,1,0,1,0,0,1 };
 
             //OneDimensionalArray.SortBinaryArray(binary_array);
@@ -318,7 +328,7 @@ namespace Main
             ////Console.WriteLine(string.Format("Can you add zero? {0}.",DataStructures.Arrays.OneDimensionalArray.ZeroSumSubarray(zarr) ? "Yes" : "No"));
             //OneDimensionalArray.PrintAllSubarrays(zarr);
             //Console.ReadLine();
-            
+
             //int[] arr1 = { 7,1,3,2,4,5,6 };
             //int[] arr2 = { 4,3,1,2 };
             //int[] arr3 = { 2, 3, 4, 1, 5 };
@@ -421,7 +431,7 @@ namespace Main
             //b.Nodes.Add(d);
             //f.Nodes.Add(a);
             //d.Nodes.Add(c);
-            
+
 
             //Graph n = new Graph();
             //n.Vertices.Add(a);
@@ -607,6 +617,21 @@ namespace Main
             ////Console.WriteLine("----------------------");
             ////Console.ReadLine();*/
         }
+
+        private static void PrintMatrix(int[][] matrix)
+        {
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                System.Console.Write("Element({0}): ", i);
+
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    System.Console.Write("{0}{1}", matrix[i][j], j == (matrix[i].Length - 1) ? "" : " ");
+                }
+                System.Console.WriteLine();
+            }
+        }
+
         private static void PrintResults(IEnumerable<int> x)
         {
             Console.WriteLine("\n");
