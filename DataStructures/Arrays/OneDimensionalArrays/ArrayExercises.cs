@@ -5,6 +5,35 @@ namespace DataStructures.Arrays.OneDimensionalArrays
 {
     public static partial class ArrayExercises
     {
+        public static IList<int> PancakeSort(int[] array)
+        {
+            List<int> rev = new List<int>();
+
+            for (int i = array.Length; i > 1; i--)
+            {
+                for (int j = i - 1; j >= 0; j--)
+                {
+                    if (array[j] == i)
+                    {
+                        rev.Add(j + 1);
+                        Reverse(array, j + 1);
+                        rev.Add(i);
+                        Reverse(array, i);
+                    }
+                }
+            }
+            return rev;
+        }
+        private static void Reverse(int[] array, int end)
+        {
+            for (int i = 0; i < end / 2; i++)
+            {
+                int tmp = array[i];
+                array[i] = array[end - 1 - i];
+                array[end - 1 - i] = tmp;
+            }
+        }
+
         public static int CountSubstrings(string s)
         {
             int counter = 0;
@@ -12,9 +41,9 @@ namespace DataStructures.Arrays.OneDimensionalArrays
             {
                 int offset = 1;
                 while (i - offset >= 0 &&
-                       i + offset < s.Length &&
-                       s[i - offset] == s[i - 1] &&
-                       s[i + offset] == s[i - 1])
+                        i + offset < s.Length &&
+                        s[i - offset] == s[i - 1] &&
+                        s[i + offset] == s[i - 1])
                 {
 
                     counter++;
@@ -81,13 +110,13 @@ namespace DataStructures.Arrays.OneDimensionalArrays
             return false;
         }
         /*
-         * Complete the 'dynamicArray' function below.
-         *
-         * The function is expected to return an INTEGER_ARRAY.
-         * The function accepts following parameters:
-         *  1. INTEGER n
-         *  2. 2D_INTEGER_ARRAY queries
-         */
+            * Complete the 'dynamicArray' function below.
+            *
+            * The function is expected to return an INTEGER_ARRAY.
+            * The function accepts following parameters:
+            *  1. INTEGER n
+            *  2. 2D_INTEGER_ARRAY queries
+            */
         public static void ExecuteRuleOne(int n, ref int[][] seqList, int x, int y, ref int lastAnswer)
         {
             if (seqList[(x ^ lastAnswer) % n] == null)
@@ -113,7 +142,7 @@ namespace DataStructures.Arrays.OneDimensionalArrays
                 lastAnswer = find_val;
             }
         }
-        public static List<int> dynamicArray(int n, List<List<int>> queries)
+        public static List<int> DynamicArray(int n, List<List<int>> queries)
         {
             int[][] seqList = new int[n][];
             var response = new List<int>();
@@ -142,4 +171,5 @@ namespace DataStructures.Arrays.OneDimensionalArrays
             return response;
         }
     }
+    
 }

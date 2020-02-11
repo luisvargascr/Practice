@@ -7,32 +7,32 @@ namespace DataStructures.Arrays.MultiDimensionalArrays
     {
         public static int[][] DiagonalSort(int[][] mat)
         {
-            int dimension = mat.Length, row = mat[0].Length;
+            int total_dimensions = mat.Length, total_rows = mat[0].Length;
 
-            for (int dim_cnt = dimension - 1, column = 0; dim_cnt >= 0; dim_cnt--)
+            for (int dim_cnt = total_dimensions - 1, column = 0; dim_cnt >= 0; dim_cnt--)
             {
                 List<int> arr = new List<int>();
 
-                for (int i = 0; dim_cnt + i < dimension && column + i < row; i++)
+                for (int i = 0; dim_cnt + i < total_dimensions && column + i < total_rows; i++)
                     arr.Add(mat[dim_cnt + i][column + i]);
 
                 arr.Sort();
 
-                for (int i = 0; dim_cnt + i < dimension && column + i < row; i++)
+                for (int i = 0; dim_cnt + i < total_dimensions && column + i < total_rows; i++)
                     mat[dim_cnt + i][column + i] = arr[i];
             }
             //FillMatrix(mat, dimension, row, dim_cnt, column);
 
-            for (int dim_cnt = 0, column = 1; column < row - 1; column++)
+            for (int dim_cnt = 0, column = 1; column < total_rows - 1; column++)
             {
                 List<int> arr = new List<int>();
 
-                for (int i = 0; dim_cnt + i < dimension && column + i < row; i++)
+                for (int i = 0; dim_cnt + i < total_dimensions && column + i < total_rows; i++)
                     arr.Add(mat[dim_cnt + i][column + i]);
 
                 arr.Sort();
 
-                for (int i = 0; dim_cnt + i < dimension && column + i < row; i++)
+                for (int i = 0; dim_cnt + i < total_dimensions && column + i < total_rows; i++)
                     mat[dim_cnt + i][column + i] = arr[i];
             }
                 //FillMatrix(mat, dimension, row, dim_cnt, column);

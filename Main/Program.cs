@@ -15,6 +15,9 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            int[] Pancakes = { 3, 2, 4, 1 };
+            ArrayExercises.PancakeSort(Pancakes);
+
             // [[11,25,66,1,69,7],[23,55,17,45,15,52],[75,31,36,44,58,8],[22,27,33,25,68,4],[84,28,14,11,5,50]]
             int[][] matrix = new int[5][] { new int[] { 11, 25, 66, 1, 69, 7 }, new int[] { 23, 55, 17, 45, 15, 52 }, new int[] { 75, 31, 36, 44, 58, 8 }, new int[] { 22, 27, 33, 25, 68, 4 }, new int[] { 84, 28, 14, 11, 5, 50 } };
 
