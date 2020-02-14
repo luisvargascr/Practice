@@ -26,11 +26,15 @@ namespace DataStructures.Arrays.OneDimensionalArrays
         }
         private static void Reverse(int[] array, int end)
         {
-            for (int i = 0; i < end / 2; i++)
+            int target = end / 2;
+   
+            for (int i = 0; i < target; i++)
             {
+                int last = end - 1 - i;
+
                 int tmp = array[i];
-                array[i] = array[end - 1 - i];
-                array[end - 1 - i] = tmp;
+                array[i] = array[last];
+                array[last] = tmp;
             }
         }
 

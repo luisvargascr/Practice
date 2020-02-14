@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DataStructures.Arrays.MultiDimensionalArrays;
 using DataStructures.Arrays.OneDimensionalArrays;
 using Algorithms;
+using LeetCodePractice;
 
 namespace Main
 {
@@ -15,6 +16,24 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            int[] luis = Exercises.BeautifulArray(4);
+
+            int[] arri = { 1, 1, 2, 3, 3, 4, 4, 8, 8 };
+
+            int UniqueVal = Exercises.SingleNonDuplicate(arri);
+
+            if (UniqueVal > -1)
+                Console.WriteLine(string.Format("Unique value is {0}.", UniqueVal));
+            else
+                Console.WriteLine("No unique value is found in given array.");
+
+            Console.WriteLine("\n");
+            string a = "kqep";
+            string b = "pekeq";
+
+            CustomSortString.SortString(a, b);
+
+
             int[] Pancakes = { 3, 2, 4, 1 };
             ArrayExercises.PancakeSort(Pancakes);
 
@@ -47,6 +66,10 @@ namespace Main
             }
             Console.WriteLine("\n");
             Console.ReadLine();
+
+            Console.Write("Binary Search. Enter number to search for: ");
+            int.TryParse(Console.ReadLine(), out int key);
+            BinarySearchAlgorithm.BinarySearch(arr, key);
 
             arr = new int[] { 8, 3, 2, 7, 9, 1, 4, 1 };
 
