@@ -5,6 +5,30 @@ namespace BitManipulation
 {
     public class BitManipulator
     {
+        private int[] GetIntArray(long num)
+        {
+            List<int> listOfInts = new List<int>();
+            while (num > 0)
+            {
+                var x = Convert.ToInt32(num % 10);
+                listOfInts.Add(x);
+                num = num / 10;
+            }
+            listOfInts.Reverse();
+            return listOfInts.ToArray();
+        }
+        public int GetDecimalValue(long item)
+        {
+            int[] nums = GetIntArray(item);
+            int res = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                res <<= 1;
+                res |= nums[i];
+            }
+            return res;
+        }
         public bool GetBit(int number, int position)
         {
             return ((number & (1 << position)) != 0);

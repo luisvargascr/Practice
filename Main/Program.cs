@@ -4,6 +4,7 @@ using DataStructures.Arrays.MultiDimensionalArrays;
 using DataStructures.Arrays.OneDimensionalArrays;
 using Algorithms;
 using LeetCodePractice;
+using BitManipulation;
 
 namespace Main
 {
@@ -16,6 +17,10 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            long binary_val = 100100111000000;
+            BitManipulator x = new BitManipulator();
+            Console.WriteLine(x.GetDecimalValue(binary_val));
+
             int[] luis = Exercises.BeautifulArray(4);
 
             int[] arri = { 1, 1, 2, 3, 3, 4, 4, 8, 8 };
