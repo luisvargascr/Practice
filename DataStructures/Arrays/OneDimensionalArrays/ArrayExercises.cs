@@ -5,6 +5,47 @@ namespace DataStructures.Arrays.OneDimensionalArrays
 {
     public static partial class ArrayExercises
     {
+        private static int BinarySearch(int[] nums, int search)
+        {
+            int low = 0;
+            int high = nums.Length - 1;
+
+            while (low < high)
+            {
+                int mid = low + (high - low) / 2;
+
+                if (nums[mid] >= search)
+                    high = mid;
+                else
+                    low = mid + 1;
+            }
+            return low;
+        }
+        public static int[] SmallerNumbersThanCurrent(int[] nums)
+        {
+            int[] SortedNums  = new int[nums.Length];
+            int[] SmallerNums = new int[nums.Length];
+
+            Array.Copy(nums, 0, SortedNums, 0, nums.Length);
+            Array.Sort(SortedNums);
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                SmallerNums[i] = BinarySearch(SortedNums, nums[i]);
+            }
+            return SmallerNums;
+        }
+        public static int FindFirstDuplicate(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[Math.Abs(array[i] - 1)] < 0)
+                    return Math.Abs(array[i]);
+                else
+                    array[Math.Abs(array[i]) - 1] = -array[Math.Abs(array[i] - 1)];
+            }
+            return -1;
+        }
         public static IList<int> PancakeSort(int[] array)
         {
             List<int> rev = new List<int>();

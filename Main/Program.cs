@@ -18,6 +18,12 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            int[] numValues = { 8, 1, 2, 2, 3 };
+            ArrayExercises.SmallerNumbersThanCurrent(numValues);
+
+            int[] FirstDuplicate = { 2,1,3,5,3,2 };
+            Console.WriteLine(string.Format("{0} is the first duplicate.", ArrayExercises.FindFirstDuplicate(FirstDuplicate)));
+
             BinaryTree<int> MyTree = new BinaryTree<int>();
 
             MyTree.Insert(6);
