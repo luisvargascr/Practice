@@ -48,7 +48,7 @@ namespace DataStructures.BST.Tree
                 {
                     parent = current;
 
-                    if (item.CompareTo(current.Data) < 0)
+                    if (current.Data.CompareTo(item) < 0)
                     {
                         current = current.LeftChild;
                         if (current == null)
@@ -100,6 +100,30 @@ namespace DataStructures.BST.Tree
         }
         public void Delete (T item)
         {
+        }
+        public int SumEvenGrandparent(Node<int> root)
+        {
+            if (root == null)
+                return 0;
+            else if (root.Data % 2 == 0)
+                return SumGrandChildren(root.LeftChild) + SumGrandChildren(root.RightChild) + SumEvenGrandparent(root.LeftChild) + SumEvenGrandparent(root.RightChild);
+            else
+                return SumEvenGrandparent(root.LeftChild) + SumEvenGrandparent(root.RightChild);
+
+        }
+        public int SumGrandChildren(Node<int> root)
+        {
+            if (root == null)
+                return 0;
+
+            int ans = 0;
+
+            if (root.LeftChild != null)
+                ans += root.LeftChild.Data;
+            if (root.RightChild != null)
+                ans += root.RightChild.Data;
+
+            return ans;
         }
 
     }

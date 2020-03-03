@@ -5,6 +5,7 @@ using DataStructures.Arrays.OneDimensionalArrays;
 using Algorithms;
 using LeetCodePractice;
 using BitManipulation;
+using DataStructures.BST.Tree;
 
 namespace Main
 {
@@ -17,6 +18,25 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            BinaryTree<int> MyTree = new BinaryTree<int>();
+
+            MyTree.Insert(6);
+            MyTree.Insert(7);
+            MyTree.Insert(8);
+            MyTree.Insert(2);
+            MyTree.Insert(7);
+            MyTree.Insert(1);
+            MyTree.Insert(3);
+            MyTree.Insert(9);
+            MyTree.Insert(1);
+            MyTree.Insert(4);
+            MyTree.Insert(5);
+
+            MyTree.SumEvenGrandparent(MyTree.Find(6));
+
+
+
+
             long binary_val = 100100111000000;
             BitManipulator x = new BitManipulator();
             Console.WriteLine(x.GetDecimalValue(binary_val));
