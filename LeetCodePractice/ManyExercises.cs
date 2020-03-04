@@ -1,9 +1,45 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LeetCodePractice
 {
-    public static class Exercises
+    public static class ManyExercises
     {
+        public static int Maximum69Number(int num)
+        {
+            var pow = (int) Math.Pow(10, (int)Math.Log10(num));
+            var sum = 0;
+
+            while (pow > 0)
+            {
+                if (num / pow == 6) return sum + 9 * pow + num % pow;
+                sum += num / pow * pow;
+                num %= pow;
+                pow /= 10;
+            }
+            return sum;
+        }
+        public static int Reverse(int x)
+        {
+            if (x <= Int32.MinValue || x >= Int32.MaxValue) return 0;
+
+            int RevInt = 0;
+            int PrevInt = 0;
+            bool PosInt = x >= 0 ? true : false;
+            x = Math.Abs(x);
+
+            while (x > 0)
+            {
+                int CurrInt = x % 10;
+                RevInt = (RevInt * 10) + CurrInt;
+                if ((RevInt - CurrInt) / 10 != PrevInt)
+                    return 0;
+                PrevInt = RevInt;
+                x = x / 10;
+            }
+
+            return PosInt ? RevInt : RevInt * -1;
+        }
         /*
             For some fixed N, an array A is beautiful if it is a permutation of the integers 1, 2, ..., N, such that:
 

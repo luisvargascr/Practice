@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Algorithms;
+using BitManipulation;
 using DataStructures.Arrays.MultiDimensionalArrays;
 using DataStructures.Arrays.OneDimensionalArrays;
-using Algorithms;
-using LeetCodePractice;
-using BitManipulation;
 using DataStructures.BST.Tree;
+using LeetCodePractice;
+using System;
+using System.Collections.Generic;
 
 namespace Main
 {
@@ -18,6 +18,9 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            Console.WriteLine(ManyExercises.Maximum69Number(6666));
+            Console.ReadLine();
+            Console.WriteLine(ManyExercises.Reverse(1534236469));
             int[] numValues = { 8, 1, 2, 2, 3 };
             ArrayExercises.SmallerNumbersThanCurrent(numValues);
 
@@ -47,11 +50,11 @@ namespace Main
             BitManipulator x = new BitManipulator();
             Console.WriteLine(x.GetDecimalValue(binary_val));
 
-            int[] luis = Exercises.BeautifulArray(4);
+            int[] luis = ManyExercises.BeautifulArray(4);
 
             int[] arri = { 1, 1, 2, 3, 3, 4, 4, 8, 8 };
 
-            int UniqueVal = Exercises.SingleNonDuplicate(arri);
+            int UniqueVal = ManyExercises.SingleNonDuplicate(arri);
 
             if (UniqueVal > -1)
                 Console.WriteLine(string.Format("Unique value is {0}.", UniqueVal));
