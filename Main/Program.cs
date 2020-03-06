@@ -18,6 +18,10 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            Console.WriteLine(ManyExercises.ToLower("MYSTRING"));
+            Console.WriteLine(ManyExercises.ToUpper("mystring"));
+            Console.ReadLine();
+
             Console.WriteLine(ManyExercises.Maximum69Number(6666));
             Console.ReadLine();
             Console.WriteLine(ManyExercises.Reverse(1534236469));

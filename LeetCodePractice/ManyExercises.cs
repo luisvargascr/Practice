@@ -1,10 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace LeetCodePractice
 {
     public static class ManyExercises
     {
+        public static string ToLower(string str)
+        {
+            StringBuilder lowerCase = new StringBuilder();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] >= 65 && str[i] <= 90)
+                {
+                    lowerCase.Append((char)(str[i] + 32));
+                }
+            }
+            return lowerCase.ToString();
+        }
+        public static string ToUpper(string str)
+        {
+            StringBuilder upperCase = new StringBuilder();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] >= 97 && str[i] <= 122)
+                {
+                    upperCase.Append((char)(str[i] - 32));
+                }
+            }
+            return upperCase.ToString();
+        }
         public static int Maximum69Number(int num)
         {
             var pow = (int) Math.Pow(10, (int)Math.Log10(num));
