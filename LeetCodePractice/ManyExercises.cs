@@ -6,6 +6,74 @@ namespace LeetCodePractice
 {
     public static class ManyExercises
     {
+        public static string FreqAlphabets1(string s)
+        {
+            StringBuilder st = new StringBuilder();
+            int num;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                num = (s[i] - '0');
+
+                if (i + 2 < s.Length && s[i + 2] == '#')
+                {
+                    num = num * 10 + (s[i + 1] - '0');
+                    i += 2;
+                }
+
+                st.Append((char)('a' + num - 1));
+            }
+
+            return st.ToString();
+        }
+        public static string FreqAlphabets(string s)
+        {
+            StringBuilder UnencryptedString = new StringBuilder();
+
+            if (s.Contains("#"))
+            {
+                var components = s.Split('#');
+                
+                for (int i = 0; i < components.Length; i++)
+                {
+                    if (components[i].Length > 2)
+                    {
+                        var sub = components[i].Substring(0, components[i].Length - 2);
+                        for (int j = 0; j < sub.Length; j++)
+                        {
+                            var num = (char)(Char.GetNumericValue(components[i][j]) + 96);
+                            UnencryptedString.Append(num);
+                        }
+                        var last = components[i].Substring(components[i].Length - 2);
+                        var num2 = (char)(Convert.ToInt32(last) + 96);
+                        UnencryptedString.Append(num2);
+                    }
+                    else if (i == components.Length - 1)
+                    {
+                        for (int j = 0; j < components[i].Length; j++)
+                        {
+                            var num = (char)(Char.GetNumericValue(components[i][j]) + 96);
+                            UnencryptedString.Append(num);
+                        }
+                    }
+                    else
+                    {
+                        var last = components[i].Substring(components[i].Length - 2);
+                        var num2 = (char)(Convert.ToInt32(last) + 96);
+                        UnencryptedString.Append(num2);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < s.Length; i++)
+                {
+                    var num = (char)(Char.GetNumericValue(s[i]) + 96);
+                    UnencryptedString.Append(num);
+                }
+            }
+            return UnencryptedString.ToString();
+        }
         public static string ToLower(string str)
         {
             StringBuilder lowerCase = new StringBuilder();

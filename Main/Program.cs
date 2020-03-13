@@ -18,6 +18,9 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            Console.WriteLine(ManyExercises.FreqAlphabets1("26#11#418#5"));
+            Console.ReadLine();
+
             Console.WriteLine(ManyExercises.ToLower("MYSTRING"));
             Console.WriteLine(ManyExercises.ToUpper("mystring"));
             Console.ReadLine();
