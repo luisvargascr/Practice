@@ -2,6 +2,7 @@
 using BitManipulation;
 using DataStructures.Arrays.MultiDimensionalArrays;
 using DataStructures.Arrays.OneDimensionalArrays;
+using DataStructures.Arrays.Strings;
 using DataStructures.BST.Tree;
 using LeetCodePractice;
 using System;
@@ -18,6 +19,20 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            // 9,15,1,3,5
+
+            LinkedInExercise x11 = new LinkedInExercise();
+            int c = x11.ReturnValue(4, new List<int> { 5, 8, 9, 44, 1, 23, 3 });
+
+
+            x11.Configure(new string[] { "The", "Car", "The", "Truck", "Duck", "Duck", "The" });
+            var WordOne = "Car";
+            var WordTwo = "Truck";
+            int index_value = x11.ShortestDistance(WordOne,WordTwo);
+
+            Console.WriteLine(string.Format("{0} is the distance between the words: {1} and {2}", index_value, WordOne, WordTwo));
+            Console.ReadLine();
+
             Console.WriteLine(ManyExercises.FreqAlphabets1("26#11#418#5"));
             Console.ReadLine();
 
