@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Algorithms;
+using BitManipulation;
 using DataStructures.Arrays.MultiDimensionalArrays;
 using DataStructures.Arrays.OneDimensionalArrays;
-using Algorithms;
-using LeetCodePractice;
-using BitManipulation;
+using DataStructures.Arrays.Strings;
 using DataStructures.BST.Tree;
+using LeetCodePractice;
+using System;
+using System.Collections.Generic;
 
 namespace Main
 {
@@ -18,6 +19,30 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            // 9,15,1,3,5
+
+            LinkedInExercise x11 = new LinkedInExercise();
+            int c = x11.ReturnValue(4, new List<int> { 5, 8, 9, 44, 1, 23, 3 });
+
+
+            x11.Configure(new string[] { "The", "Car", "The", "Truck", "Duck", "Duck", "The" });
+            var WordOne = "Car";
+            var WordTwo = "Truck";
+            int index_value = x11.ShortestDistance(WordOne,WordTwo);
+
+            Console.WriteLine(string.Format("{0} is the distance between the words: {1} and {2}", index_value, WordOne, WordTwo));
+            Console.ReadLine();
+
+            Console.WriteLine(ManyExercises.FreqAlphabets1("26#11#418#5"));
+            Console.ReadLine();
+
+            Console.WriteLine(ManyExercises.ToLower("MYSTRING"));
+            Console.WriteLine(ManyExercises.ToUpper("mystring"));
+            Console.ReadLine();
+
+            Console.WriteLine(ManyExercises.Maximum69Number(6666));
+            Console.ReadLine();
+            Console.WriteLine(ManyExercises.Reverse(1534236469));
             int[] numValues = { 8, 1, 2, 2, 3 };
             ArrayExercises.SmallerNumbersThanCurrent(numValues);
 
@@ -47,11 +72,11 @@ namespace Main
             BitManipulator x = new BitManipulator();
             Console.WriteLine(x.GetDecimalValue(binary_val));
 
-            int[] luis = Exercises.BeautifulArray(4);
+            int[] luis = ManyExercises.BeautifulArray(4);
 
             int[] arri = { 1, 1, 2, 3, 3, 4, 4, 8, 8 };
 
-            int UniqueVal = Exercises.SingleNonDuplicate(arri);
+            int UniqueVal = ManyExercises.SingleNonDuplicate(arri);
 
             if (UniqueVal > -1)
                 Console.WriteLine(string.Format("Unique value is {0}.", UniqueVal));

@@ -9,7 +9,7 @@
     <Import_RootNamespace>LeetCodePractice</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Exercises.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ManyExercises.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SolutionOne.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FindMissingElement.cs" />
   </ItemGroup>
