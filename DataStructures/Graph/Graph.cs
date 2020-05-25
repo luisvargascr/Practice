@@ -11,6 +11,19 @@ namespace DataStructures.Graph
         {
             Vertices = new List<Vertex>();
         }
+        public void DepthFirstSearch (int pos)
+        {
+            if (Vertices.ElementAt(pos).Visited)
+                return;
+
+            Vertices.ElementAt(pos).Visited = true;
+            Console.WriteLine(Vertices.ElementAt(pos).Name);
+
+            for (int cnt = 0; cnt < Vertices.ElementAt(pos).Nodes.Count; cnt++)
+            {
+                DepthFirstSearch(cnt);
+            }
+        }
         public void DepthFirstSearch(Vertex vertex, int cnt)
         {
             if (vertex == null)

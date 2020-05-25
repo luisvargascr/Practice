@@ -4,6 +4,7 @@ using DataStructures.Arrays.MultiDimensionalArrays;
 using DataStructures.Arrays.OneDimensionalArrays;
 using DataStructures.Arrays.Strings;
 using DataStructures.BST.Tree;
+using DataStructures.Graph;
 using LeetCodePractice;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,27 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("************");
+            Graph2<int> mygraph = new Graph2<int>();
+
+            mygraph.AddEdge(0, 1, true);
+            mygraph.AddEdge(0, 4, true);
+            mygraph.AddEdge(1, 2, true);
+            mygraph.AddEdge(1, 3, true);
+            mygraph.AddEdge(1, 4, true);
+            mygraph.AddEdge(2, 3, true);
+            mygraph.AddEdge(3, 4, true);
+
+            Console.WriteLine("Graph:\n" + mygraph.ToString());
+
+            mygraph.GetVertexCount();
+            mygraph.GetEdgesCount(true);
+            mygraph.HasEdge(3, 4);
+            mygraph.HasVertex(5);
+
+            Console.WriteLine("************");
+            Console.ReadLine();
+          
             // 9,15,1,3,5
 
             LinkedInExercise x11 = new LinkedInExercise();
