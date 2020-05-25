@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.Graph
 {
-    public class Graph2 <T>
+    public class Graph2<T>
     {
         private Dictionary<T, List<T>> _map;
 
@@ -12,13 +12,79 @@ namespace DataStructures.Graph
         {
             _map = new Dictionary<T, List<T>>();
         }
+        // This functions implements Depth First Search
+        // explores the node branch as far deep as possible before
+        // being forced to backtrack and expand other nodes.
+        public void DFS(T start)
+        {
+            Stack<T> stack = new Stack<T>();
+
+            //Nodes can be labelled as discovered by storing them
+            //in a set, or by an attribute on each node
+
+            HashSet<T> visited = new HashSet<T>();
+            stack.Push(start);
+
+            while (stack.Count > 0)
+            {
+                T curr = stack.Pop();
+                if (!visited.Contains(curr))
+                {
+                    visited.Add(curr);
+                    Console.WriteLine(curr.ToString());
+                }
+                foreach (KeyValuePair<T, List<T>> vertex in _map)
+                {
+                    foreach (T w in vertex.Value)
+                    {
+                        if (!visited.Contains(w))
+                        {
+                            stack.Push(w);
+                        }
+                    }
+                }
+            }
+        }
+        // This functions implements Breadth-first Search:
+        // explores all of the neighbor nodes at the present depth
+        // prior to moving on to the nodes at the next depth level.
+        public void BFS(T start)
+        {
+            Queue<T> stack = new Queue<T>();
+
+            //Nodes can be labelled as discovered by storing them
+            //in a set, or by an attribute on each node
+
+            HashSet<T> visited = new HashSet<T>();
+            stack.Enqueue(start);
+
+            while (stack.Count > 0)
+            {
+                T curr = stack.Dequeue();
+                if (!visited.Contains(curr))
+                {
+                    visited.Add(curr);
+                    Console.WriteLine(curr.ToString());
+                }
+                foreach (KeyValuePair<T, List<T>> vertex in _map)
+                {
+                    foreach (T w in vertex.Value)
+                    {
+                        if (!visited.Contains(w))
+                        {
+                            stack.Enqueue(w);
+                        }
+                    }
+                }
+            }
+        }
         // This function adds a new vertex to the graph
         public void AddVertex(T s)
         {
             _map.Add(s, new List<T>());
         }
         // This function adds the edge between source to destination
-        public void AddEdge(T source, T destination, Boolean bidirectional)
+        public void AddEdge(T source, T destination, bool bidirectional)
         {
             if (!_map.ContainsKey(source))
                 AddVertex(source);
@@ -67,12 +133,13 @@ namespace DataStructures.Graph
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
+
             foreach (KeyValuePair<T, List<T>> vertex in _map)
             {
-                builder.Append(vertex.Key.ToString() + ": ");
+                builder.Append(string.Format("{0}: ",vertex.Key.ToString()));
                 foreach (T w in vertex.Value)
                 {
-                    builder.Append(w.ToString() + " ");
+                    builder.Append(string.Format("{0} ", w.ToString()));
                 }
                 builder.Append("\n");
             }

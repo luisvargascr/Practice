@@ -38,9 +38,38 @@ namespace Main
             mygraph.HasEdge(3, 4);
             mygraph.HasVertex(5);
 
-            Console.WriteLine("************");
+            Console.WriteLine("\n**** DFS *****");
+            mygraph.DFS(0);
+            Console.WriteLine("**************");
+            Console.WriteLine();
+            Console.WriteLine("**** BFS *****");
+            mygraph.BFS(0);
+            Console.WriteLine("**************");
             Console.ReadLine();
-          
+
+            Graph2<string> germanCities = new Graph2<string>();
+
+            germanCities.AddEdge("Frankfurt", "Mannheim", true);
+            germanCities.AddEdge("Frankfurt", "Wurzburg", true);
+            germanCities.AddEdge("Frankfurt","Kassel", true);
+            germanCities.AddEdge("Mannheim","Karlsruhe", true);
+            germanCities.AddEdge("Karlsruhe", "Augsburg", true);
+            germanCities.AddEdge("Augsburg", "Munchen", true);
+            germanCities.AddEdge("Wurzburg", "Erfurt", true);
+            germanCities.AddEdge("Wurzburg", "Nurnberg", true);
+            germanCities.AddEdge("Nurnberg", "Stuttgart", true);
+            germanCities.AddEdge("Nurnberg", "Munchen", true);
+            germanCities.AddEdge("Kassel", "Munchen", true);
+
+            Console.WriteLine("\n**** DFS *****");
+            germanCities.DFS("Frankfurt");
+            Console.WriteLine("**************");
+            Console.WriteLine();
+            Console.WriteLine("**** BFS *****");
+            germanCities.BFS("Frankfurt");
+            Console.WriteLine("**************");
+            Console.ReadLine();
+
             // 9,15,1,3,5
 
             LinkedInExercise x11 = new LinkedInExercise();
