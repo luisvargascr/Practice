@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace DataStructures.Graph
 {
-    public class Graph
+    public class Graph1
     {
         public ICollection<Vertex> Vertices { get; set; }
-        public Graph()
+        public Graph1()
         {
             Vertices = new List<Vertex>();
         }
@@ -24,7 +24,7 @@ namespace DataStructures.Graph
                 DepthFirstSearch(cnt);
             }
         }
-        public void DepthFirstSearch(Vertex vertex, int cnt)
+        public void DepthFirstSearch(Vertex vertex)
         {
             if (vertex == null)
                 return;
@@ -32,22 +32,27 @@ namespace DataStructures.Graph
             if (vertex.Visited)
                 return;
 
-            Console.WriteLine("{0}) Node: '{1}'",cnt.ToString(),vertex.Name);
+            Console.WriteLine("Node: '{0}'",vertex.Name);
             vertex.Visited = true;
 
             foreach (Vertex neighbor in vertex.Nodes)
             {
                 if (!neighbor.Visited)
-                    DepthFirstSearch(neighbor, ++cnt);
+                    DepthFirstSearch(neighbor);
+            }
+        }
+        private void CleanState ()
+        {
+            foreach (Vertex v in Vertices)
+            {
+                v.Visited = false;
             }
         }
         public void DepthFirstSearchNR(Vertex vertex)
         {
-            if (!this.Vertices.Contains(vertex))
-                return;
-
+            CleanState();
+            
             var Stack = new Stack<Vertex>();
-            var cnt = 0;
             Stack.Push(vertex);
 
             while (Stack.Count > 0)
@@ -57,10 +62,10 @@ namespace DataStructures.Graph
                 if (currVertex.Visited)
                     continue;
 
-                Console.WriteLine("{0}) Node: '{1}'", ++cnt, currVertex.Name);
+                Console.WriteLine("Node: '{0}'", currVertex.Name);
                 currVertex.Visited = true;
 
-                foreach (Vertex neighbor in vertex.Nodes)
+                foreach (Vertex neighbor in Vertices)
                 {
                     if (!neighbor.Visited)
                         Stack.Push(neighbor);

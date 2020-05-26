@@ -19,7 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\WateringFlowers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\Strings\CustomSortString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\Strings\LinkedInExercise.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Vertex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultidimensionalArrays.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LinkedList\Node.cs" />

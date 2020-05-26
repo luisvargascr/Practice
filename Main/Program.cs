@@ -20,16 +20,84 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            Graph1 letter_graph = new Graph1();
+            Vertex A = new Vertex();
+            Vertex B = new Vertex();
+            Vertex C = new Vertex();
+            Vertex D = new Vertex();
+            Vertex E = new Vertex();
+            Vertex F = new Vertex();
+            Vertex G1 = new Vertex();
+
+            A.Name = "A";
+            B.Name = "B";
+            C.Name = "C";
+            D.Name = "D";
+            E.Name = "E";
+            F.Name = "F";
+            G1.Name = "G";
+
+            A.Nodes.Add(B);
+            A.Nodes.Add(C);
+            A.Nodes.Add(E);
+            B.Nodes.Add(D);
+            B.Nodes.Add(F);
+            C.Nodes.Add(G1);
+            F.Nodes.Add(E);
+
+            letter_graph.Vertices.Add(A);
+            letter_graph.Vertices.Add(B);
+            letter_graph.Vertices.Add(C);
+            letter_graph.Vertices.Add(D);
+            letter_graph.Vertices.Add(E);
+            letter_graph.Vertices.Add(F);
+            letter_graph.Vertices.Add(G1);
+
+            //Console.WriteLine("+++++++++++++");
+            //letter_graph.DepthFirstSearch(A);
+            Console.WriteLine("+++++++++++++");
+            letter_graph.DepthFirstSearchNR(A);
+            Console.WriteLine("+++++++++++++");
+
+            Graph2<char> Tremaux = new Graph2<char>();
+
+            Console.WriteLine("***********");
+
+            Tremaux.AddEdge('A', 'B', false);
+            Tremaux.AddEdge('A', 'C', false);
+            Tremaux.AddEdge('A', 'E', false);
+            Tremaux.AddEdge('B', 'D', false);
+            Tremaux.AddEdge('B', 'F', false);
+            Tremaux.AddEdge('C', 'G', false);
+            Tremaux.AddEdge('F', 'E', false);
+            Console.WriteLine("Graph:\n" + Tremaux.ToString());
+
+            Console.WriteLine("\n**** DFS recursive ****\n");
+            Tremaux.DFS('A', true);
+            Console.WriteLine("--------------");
+            Console.WriteLine("\n**** DFS iterative ****\n");
+            Tremaux.DFS('A');
+            Console.WriteLine("**************");
+            Console.WriteLine();
+            Console.WriteLine("**** BFS ****");
+            Tremaux.BFS('A');
             Console.WriteLine("************");
+            Console.ReadLine();
+            
+           
             Graph2<int> mygraph = new Graph2<int>();
 
-            mygraph.AddEdge(0, 1, true);
-            mygraph.AddEdge(0, 4, true);
             mygraph.AddEdge(1, 2, true);
-            mygraph.AddEdge(1, 3, true);
-            mygraph.AddEdge(1, 4, true);
             mygraph.AddEdge(2, 3, true);
             mygraph.AddEdge(3, 4, true);
+            mygraph.AddEdge(1, 7, true);
+            mygraph.AddEdge(2, 6, true);
+            mygraph.AddEdge(3, 5, true);
+            mygraph.AddEdge(1, 8, true);
+            mygraph.AddEdge(8, 9, true);
+            mygraph.AddEdge(8, 12, true);
+            mygraph.AddEdge(9, 10, true);
+            mygraph.AddEdge(9, 11, true);
 
             Console.WriteLine("Graph:\n" + mygraph.ToString());
 
@@ -38,12 +106,15 @@ namespace Main
             mygraph.HasEdge(3, 4);
             mygraph.HasVertex(5);
 
-            Console.WriteLine("\n**** DFS *****");
-            mygraph.DFS(0);
+            Console.WriteLine("\n**** DFS Iterative ****");
+            mygraph.DFS(1);
+            Console.WriteLine("--------------");
+            Console.WriteLine("\n**** DFS Recursive ****\n");
+            mygraph.DFS(1, true);
             Console.WriteLine("**************");
             Console.WriteLine();
             Console.WriteLine("**** BFS *****");
-            mygraph.BFS(0);
+            mygraph.BFS(1);
             Console.WriteLine("**************");
             Console.ReadLine();
 
@@ -61,8 +132,11 @@ namespace Main
             germanCities.AddEdge("Nurnberg", "Munchen", true);
             germanCities.AddEdge("Kassel", "Munchen", true);
 
-            Console.WriteLine("\n**** DFS *****");
+            Console.WriteLine("\n**** DFS Iterative *****");
             germanCities.DFS("Frankfurt");
+            Console.WriteLine("--------------");
+            Console.WriteLine("\n**** DFS Recursive ****\n");
+            germanCities.DFS("Frankfurt", true);
             Console.WriteLine("**************");
             Console.WriteLine();
             Console.WriteLine("**** BFS *****");
