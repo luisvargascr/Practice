@@ -33,6 +33,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\MultiDimensionalArrays\MultiDimensionalArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\OneDimensionalArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)LinkedList\" />

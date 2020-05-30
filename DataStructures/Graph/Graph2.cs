@@ -17,6 +17,9 @@ namespace DataStructures.Graph
         // Depth First Search - Recursive
         public void DFS(T vertex, bool recursive)
         {
+            if (_visited.Contains(vertex))
+                return;
+
             _visited.Add(vertex);
             Console.WriteLine(vertex.ToString());
 
@@ -30,36 +33,35 @@ namespace DataStructures.Graph
         // This functions implements Depth First Search
         // explores the node branch as far deep as possible before
         // being forced to backtrack and expand other nodes.
-        public void DFS(T start)
+        public void DFS(T vertex)
         {
-            Stack<T> stack = new Stack<T>();
-
+            // A, B, D, F, E, C, G
             //Nodes can be labelled as discovered by storing them
             //in a set, or by an attribute on each node
+            _visited.Clear();
+            Stack<T> stack = new Stack<T>();
+            stack.Push(vertex);
 
-            HashSet<T> visited = new HashSet<T>();
-            stack.Push(start);
-
-            while (stack.Count > 0)
+            while (stack.Count != 0)
             {
                 T curr = stack.Pop();
-                if (!visited.Contains(curr))
+
+                if (!_visited.Contains(curr))
                 {
-                    visited.Add(curr);
                     Console.WriteLine(curr.ToString());
+                    _visited.Add(curr);
                 }
-                //foreach (KeyValuePair<T, List<T>> vertex in _map)
-                //{
-                    foreach (T w in _map[curr])
-                    {
-                        if (!visited.Contains(w))
-                        {
-                            stack.Push(w);
-                     
-                        }
-                    }
-               // }
+
+                List<T> adj = _map[curr];
+
+                for (int i = adj.Count - 1; i >= 0; i--)
+                {
+                    T adjvertex = _map[curr][i];
+                    if (!_visited.Contains(adjvertex))
+                        stack.Push(adjvertex);
+                }
             }
+            _visited.Clear();
         }
         // This functions implements Breadth-first Search:
         // explores all of the neighbor nodes at the present depth
@@ -67,27 +69,26 @@ namespace DataStructures.Graph
         // NOT optimal to implement Recursively
         public void BFS(T start)
         {
+            _visited.Clear();
             Queue<T> stack = new Queue<T>();
 
             //Nodes can be labelled as discovered by storing them
             //in a set, or by an attribute on each node
-
-            HashSet<T> visited = new HashSet<T>();
             stack.Enqueue(start);
 
             while (stack.Count > 0)
             {
                 T curr = stack.Dequeue();
-                if (!visited.Contains(curr))
+                if (!_visited.Contains(curr))
                 {
-                    visited.Add(curr);
+                    _visited.Add(curr);
                     Console.WriteLine(curr.ToString());
                 }
                 foreach (KeyValuePair<T, List<T>> vertex in _map)
                 {
                     foreach (T w in vertex.Value)
                     {
-                        if (!visited.Contains(w))
+                        if (!_visited.Contains(w))
                         {
                             stack.Enqueue(w);
                         }
