@@ -1,185 +1,187 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
 namespace DataStructures.Graph
 {
-    public class Graph1
+    public class Graph1<T>
     {
-        public ICollection<Vertex> Vertices { get; set; }
+        private Dictionary<T, List<T>> _map;
+        private HashSet<T> _visited;
+
         public Graph1()
         {
-            Vertices = new List<Vertex>();
+            _map = new Dictionary<T, List<T>>();
+            _visited = new HashSet<T>();
         }
-        public void DepthFirstSearch (int pos)
+        // Depth First Search - Recursive
+        public void DFS(T vertex, bool recursive)
         {
-            if (Vertices.ElementAt(pos).Visited)
+            if (_visited.Contains(vertex))
                 return;
 
-            Vertices.ElementAt(pos).Visited = true;
-            Console.WriteLine(Vertices.ElementAt(pos).Name);
+            _visited.Add(vertex);
+            Console.WriteLine(vertex.ToString());
 
-            for (int cnt = 0; cnt < Vertices.ElementAt(pos).Nodes.Count; cnt++)
+            foreach (T item in _map[vertex])
             {
-                DepthFirstSearch(cnt);
+                if (!_visited.Contains(item))
+                    DFS(item, true);
             }
         }
-        public void DepthFirstSearch(Vertex vertex)
+        public void SpanningTree()
         {
-            if (vertex == null)
-                return;
-
-            if (vertex.Visited)
-                return;
-
-            Console.WriteLine("Node: '{0}'",vertex.Name);
-            vertex.Visited = true;
-
-            foreach (Vertex neighbor in vertex.Nodes)
+            _visited.Clear();
+            foreach (KeyValuePair<T,List<T>> val in _map)
             {
-                if (!neighbor.Visited)
-                    DepthFirstSearch(neighbor);
+                SpanningTreeAct(val.Key);
             }
+            _visited.Clear();
         }
-        private void CleanState ()
+        private void SpanningTreeAct(T val)
         {
-            foreach (Vertex v in Vertices)
+            _visited.Add(val);
+            foreach (T adj in _map[val])
             {
-                v.Visited = false;
-            }
-        }
-        public void DepthFirstSearchNR(Vertex vertex)
-        {
-            CleanState();
-            
-            var Stack = new Stack<Vertex>();
-            Stack.Push(vertex);
-
-            while (Stack.Count > 0)
-            {
-                var currVertex = Stack.Pop();
-
-                if (currVertex.Visited)
-                    continue;
-
-                Console.WriteLine("Node: '{0}'", currVertex.Name);
-                currVertex.Visited = true;
-
-                foreach (Vertex neighbor in Vertices)
+                if (!_visited.Contains(adj))
                 {
-                    if (!neighbor.Visited)
-                        Stack.Push(neighbor);
+                    Console.WriteLine(string.Format("Node {0} adjacent to {1}.", adj.ToString(), val.ToString()));
+                    SpanningTreeAct(adj);
                 }
             }
         }
-        public void BreadthFirstSearchNR(Vertex vertex)
+        // This functions implements Depth First Search
+        // explores the node branch as far deep as possible before
+        // being forced to backtrack and expand other nodes.
+        public void DFS(T vertex)
         {
-            if (!this.Vertices.Contains(vertex))
-                return;
+            // A, B, D, F, E, C, G
+            //Nodes can be labelled as discovered by storing them
+            //in a set, or by an attribute on each node
+            _visited.Clear();
+            Stack<T> stack = new Stack<T>();
+            stack.Push(vertex);
 
-            var Queue = new Queue<Vertex>();
-            var cnt = 0;
-            Queue.Enqueue(vertex);
-
-            while (Queue.Count > 0)
+            while (stack.Count != 0)
             {
-                var currVertex = Queue.Dequeue();
+                T curr = stack.Pop();
 
-                if (currVertex.Visited)
-                    continue;
-
-                Console.WriteLine("{0}) Node: '{1}'", ++cnt, currVertex.Name);
-                currVertex.Visited = true;
-
-                foreach (Vertex neighbor in vertex.Nodes)
+                if (!_visited.Contains(curr))
                 {
-                    if (!neighbor.Visited)
-                        Queue.Enqueue(neighbor);
+                    Console.WriteLine(curr.ToString());
+                    _visited.Add(curr);
+                }
+
+                List<T> adj = _map[curr];
+
+                for (int i = adj.Count - 1; i >= 0; i--)
+                {
+                    T adjvertex = _map[curr][i];
+                    if (!_visited.Contains(adjvertex))
+                        stack.Push(adjvertex);
+                }
+            }
+            _visited.Clear();
+        }
+        // This functions implements Breadth-first Search:
+        // explores all of the neighbor nodes at the present depth
+        // prior to moving on to the nodes at the next depth level.
+        // NOT optimal to implement Recursively
+        public void BFS(T start)
+        {
+            _visited.Clear();
+            Queue<T> stack = new Queue<T>();
+
+            //Nodes can be labelled as discovered by storing them
+            //in a set, or by an attribute on each node
+            stack.Enqueue(start);
+
+            while (stack.Count > 0)
+            {
+                T curr = stack.Dequeue();
+                if (!_visited.Contains(curr))
+                {
+                    _visited.Add(curr);
+                    Console.WriteLine(curr.ToString());
+                }
+                foreach (KeyValuePair<T, List<T>> vertex in _map)
+                {
+                    foreach (T w in vertex.Value)
+                    {
+                        if (!_visited.Contains(w))
+                        {
+                            stack.Enqueue(w);
+                        }
+                    }
                 }
             }
         }
-        public bool RouteBetweenNodes(Vertex nodeA, Vertex nodeB)
+        // This function adds a new vertex to the graph
+        public void AddVertex(T s)
         {
-            if (nodeA == null)
-                return false;
-
-            if (nodeB == null)
-                return false;
-
-            var neighbors = new Queue<Vertex>();
-            neighbors.Enqueue(nodeA);
-
-            while (neighbors.Count > 0)
-            {
-                var currNeighbor = neighbors.Dequeue();
-
-                if (currNeighbor.Visited)
-                    continue;
-
-                currNeighbor.Visited = true;
-
-                foreach (Vertex neighbor in currNeighbor.Nodes)
-                {
-                    if (neighbor.Name.Equals(nodeB.Name, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        return true;
-                    }
-                    neighbors.Enqueue(neighbor);
-                }
-            }
-            return false;
+            _map.Add(s, new List<T>());
         }
-        public void TopologicalSort()
+        // This function adds the edge between source to destination
+        public void AddEdge(T source, T destination, bool bidirectional)
         {
-            var results = new Stack<Vertex>();
-            var visited = new List<Vertex>();
-            var pending = new List<Vertex>();
+            if (!_map.ContainsKey(source))
+                AddVertex(source);
+            if (!_map.ContainsKey(destination))
+                AddVertex(destination);
 
-            Visit(Vertices, results, visited, pending);
-            int cnt = 0;
-
-            foreach (Vertex x in results)
-            {
-                if (++cnt == results.Count)
-                    Console.Write(x.Name);
-                else
-                    Console.Write(x.Name + "->");
-            }
+            _map[source].Add(destination);
+            if (bidirectional)
+                _map[destination].Add(source);
         }
-
-        private void Visit(ICollection<Vertex> graph, Stack<Vertex> results, ICollection<Vertex> visited, ICollection<Vertex> pending)
+        // This function gives the count of the vertices.
+        public void GetVertexCount()
         {
-            // Foreach node in the graph
-            foreach (var n in graph)
+            Console.WriteLine(string.Format("The graph has {0} vertex.", _map.Keys.Count));
+        }
+        // This function gives the count of edges
+        public void GetEdgesCount(bool bidirection)
+        {
+            int count = 0;
+            foreach (T vertex in _map.Keys)
             {
-                // Skip if node has been visited
-                if (!visited.Contains(n))
-                {
-                    if (!pending.Contains(n))
-                    {
-                        pending.Add(n);
-                    }
-                    else
-                    {
-                        Console.WriteLine(String.Format("Cycle detected (node Data={0})", n.Name));
-                        return;
-                    }
-
-                    // recursively call this function for every child of the current node
-                    Visit(n.Nodes, results, visited, pending);
-
-                    if (pending.Contains(n))
-                    {
-                        pending.Remove(n);
-                    }
-
-                    visited.Add(n);
-
-                    // Made it past the recusion part, so there are no more dependents.
-                    // Therefore, append node to the output list.
-                    results.Push(n);
-                }
+                count += _map[vertex].Count;
             }
+            if (bidirection)
+                count /= 2;
+
+            Console.WriteLine(string.Format("The graph has {0} edges.", count));
+        }
+        // This method indicates whether a vertex is present or not.
+        public void HasVertex(T s)
+        {
+            if (_map.ContainsKey(s))
+                Console.WriteLine(string.Format("The graph contains {0} as a vertex.", s));
+            else
+                Console.WriteLine(string.Format("The graph does not contain {0} as a vertex.", s));
+        }
+        // This function gives whether an edge is present
+        public void HasEdge(T s, T d)
+        {
+            if (_map[s].Contains(d))
+                Console.WriteLine(string.Format("The graph has an edge between {0} and {1}.", s, d));
+            else
+                Console.WriteLine(string.Format("The graph does not have an edge between {0} and {1}.", s, d));
+        }
+        // This function prints adjacency list of each vertex.
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (KeyValuePair<T, List<T>> vertex in _map)
+            {
+                builder.Append(string.Format("{0}: ",vertex.Key.ToString()));
+                foreach (T w in vertex.Value)
+                {
+                    builder.Append(string.Format("{0} ", w.ToString()));
+                }
+                builder.Append("\n");
+            }
+            return builder.ToString();
         }
     }
 }

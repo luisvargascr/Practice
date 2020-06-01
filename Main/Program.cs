@@ -20,12 +20,61 @@ namespace Main
 
         public static void Main(string[] args)
         {
-            TremauxExecution();
+            // TremauxExecution();
+            // GermanCities();
+            PrimAlgorithmn();
             /*GraphExecution();
             GermanCities();
             ShortestDistanceBetweenTwoWords();
             StringManip();
             RandomExercises();*/
+        }
+
+        private static void PrimAlgorithmn()
+        {
+            List<Vertex> graph = new List<Vertex>();
+
+            Vertex a = new Vertex("A");
+            Vertex b = new Vertex("B");
+            Vertex c = new Vertex("C");
+            Vertex d = new Vertex("D");
+            Vertex e = new Vertex("E");
+
+            Edge ab = new Edge(2);
+            a.AddEdge(b, ab);
+            b.AddEdge(a, ab);
+            Edge ac = new Edge(3);
+            a.AddEdge(c, ac);
+            c.AddEdge(a, ac);
+            Edge bc = new Edge(2);
+            b.AddEdge(c, bc);
+            c.AddEdge(b, bc);
+            Edge be = new Edge(5);
+            b.AddEdge(e, be);
+            e.AddEdge(b, be);
+            Edge cd = new Edge(1);
+            c.AddEdge(d, cd);
+            d.AddEdge(c, cd);
+            Edge ce = new Edge(1);
+            c.AddEdge(e, ce);
+            e.AddEdge(c, ce);
+
+            graph.Add(a);
+            graph.Add(b);
+            graph.Add(c);
+            graph.Add(d);
+            graph.Add(e);
+
+            Console.WriteLine("****************");
+            Prim MyPrimAlgo = new Prim(graph);
+            Console.WriteLine("Graph before Prim");
+            MyPrimAlgo.PrintOriginalGraph();
+            Console.ReadLine();
+            Console.WriteLine("Graph after Prim");
+            MyPrimAlgo.Run();
+            MyPrimAlgo.PrintNewGraph();
+            Console.WriteLine("****************");
+            Console.ReadLine();
         }
 
         private static void RandomExercises()
@@ -226,7 +275,7 @@ namespace Main
 
         private static void GermanCities()
         {
-            Graph2<string> germanCities = new Graph2<string>();
+            Graph1<string> germanCities = new Graph1<string>();
 
             germanCities.AddEdge("Frankfurt", "Mannheim", true);
             germanCities.AddEdge("Frankfurt", "Wurzburg", true);
@@ -250,12 +299,15 @@ namespace Main
             Console.WriteLine("**** BFS *****");
             germanCities.BFS("Frankfurt");
             Console.WriteLine("**************");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~");
+            germanCities.SpanningTree();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~");
             Console.ReadLine();
         }
 
         private static void TremauxExecution()
         {
-            Graph2<char> Tremaux = new Graph2<char>();
+            Graph1<char> Tremaux = new Graph1<char>();
             Tremaux.AddEdge('A', 'B', true);
             Tremaux.AddEdge('A', 'C', true);
             Tremaux.AddEdge('A', 'E', true);
@@ -277,13 +329,16 @@ namespace Main
             Console.WriteLine("\n**** BFS ****\n");
             Tremaux.BFS('A');
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("\n**** Spanning Tree ****\n");
+            Tremaux.SpanningTree();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             Console.WriteLine("Last Line");
             Console.ReadLine();
         }
 
         private static void GraphExecution()
         {
-            Graph3<string> cities = new Graph3<string>();
+            Graph2<string> cities = new Graph2<string>();
             cities.AddVertex("Frankfurt"); //0
             cities.AddVertex("Mannheim"); //1
             cities.AddVertex("Karisruhe"); //2
@@ -309,7 +364,7 @@ namespace Main
             Console.WriteLine("\n");
             Console.WriteLine("----- DFS CITIES ------");
             cities.DFS();
-            
+            Console.ReadLine();
         }
 
         private static void PrintMatrix(int[][] matrix)

@@ -1,167 +1,108 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace DataStructures.Graph
 {
+    public class StackX
+    {
+        private const int SIZE = 20;
+        private int[] _st;
+        private int _top;
+
+        public StackX()
+        {
+            _st = new int[SIZE];
+            _top = -1;
+        }
+        public void Push (int j)
+        {
+            _st[++_top] = j;
+        }
+        public int Pop ()
+        {
+            return _st[_top--];
+        }
+        public int Peek()
+        {
+            return _st[_top];
+        }
+        public bool IsEmpty()
+        {
+            return _top == -1;
+        }
+    }
+    public class VertexN<T>
+    {
+        public T Label { get; set; }
+        public bool WasVisited { get; set; }
+
+        public VertexN(T lab)
+        {
+            Label = lab;
+            WasVisited = false;
+        }
+    }
     public class Graph2<T>
     {
-        private Dictionary<T, List<T>> _map;
-        private HashSet<T> _visited;
+        private const int MAX_VERTS = 20;
+        private VertexN<T> [] _vertexList;
+        private int[,] _adjMat;
+        private int _nVerts;
+        private StackX _stack;
 
         public Graph2()
         {
-            _map = new Dictionary<T, List<T>>();
-            _visited = new HashSet<T>();
+            _vertexList = new VertexN<T>[MAX_VERTS];
+            _adjMat = new int[MAX_VERTS, MAX_VERTS];
+            _nVerts = 0;
+
+            for (int j = 0; j < MAX_VERTS; j++)
+                for (int k = 0; k < MAX_VERTS; k++)
+                    _adjMat[j, k] = 0;
+
+            _stack = new StackX();
         }
-        // Depth First Search - Recursive
-        public void DFS(T vertex, bool recursive)
+        public void AddVertex(T lab)
         {
-            if (_visited.Contains(vertex))
-                return;
-
-            _visited.Add(vertex);
-            Console.WriteLine(vertex.ToString());
-
-            foreach (T item in _map[vertex])
+            _vertexList[_nVerts++] = new VertexN<T>(lab);
+        }
+        public void AddEdge(int start, int end)
+        {
+            _adjMat[start, end] = 1;
+            _adjMat[end, start] = 1;
+        }
+        public void DisplayVertex(int v)
+        {
+            Console.WriteLine(_vertexList[v].Label);
+        }
+        public int GetAdjUnvisitedVertex(int v)
+        {
+            for (int j = 0; j < _nVerts; j++)
             {
-                if (!_visited.Contains(item))
-                    DFS(item, true);
+                if (_adjMat[v, j] == 1 && !_vertexList[j].WasVisited)
+                    return j;
             }
+            return -1;
         }
-
-        // This functions implements Depth First Search
-        // explores the node branch as far deep as possible before
-        // being forced to backtrack and expand other nodes.
-        public void DFS(T vertex)
+        public void DFS()
         {
-            // A, B, D, F, E, C, G
-            //Nodes can be labelled as discovered by storing them
-            //in a set, or by an attribute on each node
-            _visited.Clear();
-            Stack<T> stack = new Stack<T>();
-            stack.Push(vertex);
+            _vertexList[0].WasVisited = true;
+            DisplayVertex(0);
+            _stack.Push(0);
 
-            while (stack.Count != 0)
+            while(!_stack.IsEmpty())
             {
-                T curr = stack.Pop();
+                int v = GetAdjUnvisitedVertex(_stack.Peek());
 
-                if (!_visited.Contains(curr))
+                if (v == -1)
+                    _stack.Pop();
+                else
                 {
-                    Console.WriteLine(curr.ToString());
-                    _visited.Add(curr);
-                }
-
-                List<T> adj = _map[curr];
-
-                for (int i = adj.Count - 1; i >= 0; i--)
-                {
-                    T adjvertex = _map[curr][i];
-                    if (!_visited.Contains(adjvertex))
-                        stack.Push(adjvertex);
-                }
-            }
-            _visited.Clear();
-        }
-        // This functions implements Breadth-first Search:
-        // explores all of the neighbor nodes at the present depth
-        // prior to moving on to the nodes at the next depth level.
-        // NOT optimal to implement Recursively
-        public void BFS(T start)
-        {
-            _visited.Clear();
-            Queue<T> stack = new Queue<T>();
-
-            //Nodes can be labelled as discovered by storing them
-            //in a set, or by an attribute on each node
-            stack.Enqueue(start);
-
-            while (stack.Count > 0)
-            {
-                T curr = stack.Dequeue();
-                if (!_visited.Contains(curr))
-                {
-                    _visited.Add(curr);
-                    Console.WriteLine(curr.ToString());
-                }
-                foreach (KeyValuePair<T, List<T>> vertex in _map)
-                {
-                    foreach (T w in vertex.Value)
-                    {
-                        if (!_visited.Contains(w))
-                        {
-                            stack.Enqueue(w);
-                        }
-                    }
+                    _vertexList[v].WasVisited = true;
+                    DisplayVertex(v);
+                    _stack.Push(v);
                 }
             }
-        }
-        // This function adds a new vertex to the graph
-        public void AddVertex(T s)
-        {
-            _map.Add(s, new List<T>());
-        }
-        // This function adds the edge between source to destination
-        public void AddEdge(T source, T destination, bool bidirectional)
-        {
-            if (!_map.ContainsKey(source))
-                AddVertex(source);
-            if (!_map.ContainsKey(destination))
-                AddVertex(destination);
-
-            _map[source].Add(destination);
-            if (bidirectional)
-                _map[destination].Add(source);
-        }
-        // This function gives the count of the vertices.
-        public void GetVertexCount()
-        {
-            Console.WriteLine(string.Format("The graph has {0} vertex.", _map.Keys.Count));
-        }
-        // This function gives the count of edges
-        public void GetEdgesCount(bool bidirection)
-        {
-            int count = 0;
-            foreach (T vertex in _map.Keys)
-            {
-                count += _map[vertex].Count;
-            }
-            if (bidirection)
-                count /= 2;
-
-            Console.WriteLine(string.Format("The graph has {0} edges.", count));
-        }
-        // This method indicates whether a vertex is present or not.
-        public void HasVertex(T s)
-        {
-            if (_map.ContainsKey(s))
-                Console.WriteLine(string.Format("The graph contains {0} as a vertex.", s));
-            else
-                Console.WriteLine(string.Format("The graph does not contain {0} as a vertex.", s));
-        }
-        // This function gives whether an edge is present
-        public void HasEdge(T s, T d)
-        {
-            if (_map[s].Contains(d))
-                Console.WriteLine(string.Format("The graph has an edge between {0} and {1}.", s, d));
-            else
-                Console.WriteLine(string.Format("The graph does not have an edge between {0} and {1}.", s, d));
-        }
-        // This function prints adjacency list of each vertex.
-        public override string ToString()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            foreach (KeyValuePair<T, List<T>> vertex in _map)
-            {
-                builder.Append(string.Format("{0}: ",vertex.Key.ToString()));
-                foreach (T w in vertex.Value)
-                {
-                    builder.Append(string.Format("{0} ", w.ToString()));
-                }
-                builder.Append("\n");
-            }
-            return builder.ToString();
+            for (int j = 0; j < _nVerts; j++)
+                _vertexList[j].WasVisited = false;
         }
     }
 }
