@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace DataStructures.Graph
 {
@@ -10,27 +11,6 @@ namespace DataStructures.Graph
         public Prim(List<Vertex> graph)
         {
             _graph = graph;
-        }
-        public void PrintOriginalGraph()
-        {
-
-            int cnt = 0;
-            foreach (Vertex vertex in _graph)
-            {
-                if (cnt == 0) { vertex.ResetPrinting();  };
-                Console.WriteLine(vertex.PrintOriginalGraph());
-                cnt++;
-            }
-        }
-        public void PrintNewGraph()
-        {
-            int cnt = 0;
-            foreach (Vertex vertex in _graph)
-            {
-                if (cnt == 0) { vertex.ResetPrinting(); };
-                Console.WriteLine(vertex.PrintNewGraph());
-                cnt++;
-            }
         }
         public void Run()
         {
@@ -68,6 +48,36 @@ namespace DataStructures.Graph
                 }
             }
             return false;
+        }
+        public string OriginalGraphToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Vertex vertex in _graph)
+            {
+                sb.Append(vertex.OriginalToString());
+            }
+            return sb.ToString();
+        }
+        public void ResetPrintHistory()
+        {
+            foreach (Vertex vertex in _graph)
+            {
+               foreach (Edge edge in vertex.Edges.Values)
+                {
+                    edge.IsPrinted = false;
+                }
+            }
+        }
+        public string MinimumSpanningTreeToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Vertex vertex in _graph)
+            {
+                sb.Append(vertex.IncludedToString());
+            }
+            return sb.ToString();
         }
     }
 }

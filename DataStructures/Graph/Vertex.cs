@@ -9,11 +9,6 @@ namespace DataStructures.Graph
         public string Label { get; set; }
         public Dictionary<Vertex, Edge> Edges { get; set; }
 
-        public Vertex()
-        {
-            Visited = false;
-            Edges = new Dictionary<Vertex, Edge>();
-        }
         public Vertex(string label)
         {
             Label = label;
@@ -55,49 +50,49 @@ namespace DataStructures.Graph
             }
             return new KeyValuePair<Vertex, Edge>(NextVertex, NextMinimum);
         }
-        public void ResetPrinting()
+        public string OriginalToString()
         {
-            foreach (KeyValuePair<Vertex, Edge> vertex in Edges)
+            StringBuilder sb = new StringBuilder();
+
+            foreach (KeyValuePair<Vertex, Edge> pair in Edges)
             {
-                if (vertex.Value.IsPrinted)
+                if (!pair.Value.IsPrinted)
                 {
-                    vertex.Value.IsPrinted = false;
+                    sb.Append(Label);
+                    sb.Append(" --- ");
+                    sb.Append(pair.Value.Weight);
+                    sb.Append(" --- ");
+                    sb.Append(pair.Key.Label);
+                    sb.Append("\n");
+                    pair.Value.IsPrinted = true;
                 }
             }
+            return sb.ToString();
         }
-        public string PrintOriginalGraph()
+        public string IncludedToString()
         {
-            StringBuilder builder = new StringBuilder();
-    
-            foreach (KeyValuePair<Vertex, Edge> vertex in Edges)
-            {
-                if (!vertex.Value.IsPrinted)
-                {
-                    builder.AppendLine(string.Format("{0} --- {1} --- {2}", this.Label, vertex.Value.Weight.ToString(), vertex.Key.Label));
-                    vertex.Value.IsPrinted = true;
-                }
-            }
-            return builder.ToString();
-        }
-        public string PrintNewGraph()
-        {
-            StringBuilder builder = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             if (Visited)
             {
-                foreach (KeyValuePair<Vertex, Edge> vertex in Edges)
+                foreach (KeyValuePair<Vertex, Edge> pair in Edges)
                 {
-                    if (vertex.Value.IsIncluded)
+                    if (pair.Value.IsIncluded)
                     {
-                        if (!vertex.Value.IsPrinted)
+                        if (!pair.Value.IsPrinted)
                         {
-                            builder.AppendLine(string.Format("{0} --- {1} --- {2}", this.Label, vertex.Value.Weight.ToString(), vertex.Key.Label));
-                            vertex.Value.IsPrinted = true;
+                            sb.Append(Label);
+                            sb.Append(" --- ");
+                            sb.Append(pair.Value.Weight);
+                            sb.Append(" --- ");
+                            sb.Append(pair.Key.Label);
+                            sb.Append("\n");
+                            pair.Value.IsPrinted = true;
                         }
                     }
                 }
             }
-            return builder.ToString();
+            return sb.ToString();
         }
     }
 }

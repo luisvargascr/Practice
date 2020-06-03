@@ -66,14 +66,17 @@ namespace Main
             graph.Add(e);
 
             Console.WriteLine("****************");
+            Console.WriteLine("\n");
             Prim MyPrimAlgo = new Prim(graph);
             Console.WriteLine("Graph before Prim");
-            MyPrimAlgo.PrintOriginalGraph();
+            Console.WriteLine(MyPrimAlgo.OriginalGraphToString());
             Console.ReadLine();
             Console.WriteLine("Graph after Prim");
             MyPrimAlgo.Run();
-            MyPrimAlgo.PrintNewGraph();
+            MyPrimAlgo.ResetPrintHistory();
+            Console.WriteLine(MyPrimAlgo.MinimumSpanningTreeToString());
             Console.WriteLine("****************");
+            Console.WriteLine("\n");
             Console.ReadLine();
         }
 
