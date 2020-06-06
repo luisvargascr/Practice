@@ -1,18 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DataStructures.Graph
 {
     public class Graph1<T>
     {
-        private Dictionary<T, List<T>> _map;
+        private Dictionary<T, List<T>> _graph;
         private HashSet<T> _visited;
 
         public Graph1()
         {
-            _map = new Dictionary<T, List<T>>();
+            _graph = new Dictionary<T, List<T>>();
             _visited = new HashSet<T>();
+        }
+        private bool HasCycle(T vertex)
+        {
+            _visited.Add(vertex);
+
+            foreach (T neighbor in _graph[vertex])
+            {
+                if (_visited.Contains(neighbor))
+                    return true;
+                else if (!_visited.Contains(neighbor) && HasCycle(neighbor))
+                    return true;
+            }
+
+            _visited.Clear();
+            return false;
+        }
+        private void BuildPathBetweenTwoVertices(T vertex, T end, List<T> visited, List<T> localPathList)
+        {
+            visited.Add(vertex);
+            int index = visited.IndexOf(vertex);
+
+            if (vertex.Equals(end))
+            {
+                Console.WriteLine(string.Join("->", visited));
+                return;
+            }
+            foreach (T neighbor in _graph[vertex])
+            {
+                if (visited.IndexOf(neighbor) != index)
+                {
+                    localPathList.Add(neighbor);
+                    BuildPathBetweenTwoVertices(neighbor, end, visited, localPathList);
+                    localPathList.Remove(neighbor);
+                }
+            }
+            visited.Remove(vertex);
+        }
+        public void FindPathBetweenTwoVertices(T s, T e)
+        {
+            List<T> LocalPathList = new List<T>();
+            List<T> Visited = new List<T>();
+
+            BuildPathBetweenTwoVertices(s, e, Visited, LocalPathList);
+            if (Visited.Count() == 0 && LocalPathList.Count == 0)
+                Console.WriteLine(string.Format("No paths between {0} and {1} were found!", s.ToString(), e.ToString()));
         }
         // Depth First Search - Recursive
         public void DFS(T vertex, bool recursive)
@@ -23,46 +69,55 @@ namespace DataStructures.Graph
             _visited.Add(vertex);
             Console.WriteLine(vertex.ToString());
 
-            foreach (T item in _map[vertex])
+            foreach (T neighbor in _graph[vertex])
             {
-                if (!_visited.Contains(item))
-                    DFS(item, true);
+                if (!_visited.Contains(neighbor))
+                    DFS(neighbor, true);
             }
         }
-        public void SpanningTree()
+        public bool IsCyclic()
+        {
+            return HasCycle(_graph.Keys.FirstOrDefault());
+        }
+        public void FindSpanningTree()
         {
             _visited.Clear();
-            foreach (KeyValuePair<T,List<T>> val in _map)
+
+            foreach (KeyValuePair<T,List<T>> vertex in _graph)
             {
-                SpanningTreeAct(val.Key);
+                BuildSpanningTree(vertex.Key);
             }
+
             _visited.Clear();
         }
-        private void SpanningTreeAct(T val)
+        private void BuildSpanningTree(T vertex)
         {
-            _visited.Add(val);
-            foreach (T adj in _map[val])
+            _visited.Add(vertex);
+
+            foreach (T neighbor in _graph[vertex])
             {
-                if (!_visited.Contains(adj))
+                if (!_visited.Contains(neighbor))
                 {
-                    Console.WriteLine(string.Format("Node {0} adjacent to {1}.", adj.ToString(), val.ToString()));
-                    SpanningTreeAct(adj);
+                    Console.WriteLine(string.Format("Node {0} adjacent to {1}.", neighbor.ToString(), vertex.ToString()));
+                    BuildSpanningTree(neighbor);
                 }
             }
         }
         // This functions implements Depth First Search
         // explores the node branch as far deep as possible before
         // being forced to backtrack and expand other nodes.
+        // Iterative Implementation of DFS.
         public void DFS(T vertex)
         {
             // A, B, D, F, E, C, G
             //Nodes can be labelled as discovered by storing them
             //in a set, or by an attribute on each node
+
             _visited.Clear();
             Stack<T> stack = new Stack<T>();
             stack.Push(vertex);
 
-            while (stack.Count != 0)
+            while (stack.Count > 0)
             {
                 T curr = stack.Pop();
 
@@ -72,13 +127,13 @@ namespace DataStructures.Graph
                     _visited.Add(curr);
                 }
 
-                List<T> adj = _map[curr];
+                List<T> neighbors = _graph[curr];
 
-                for (int i = adj.Count - 1; i >= 0; i--)
+                for (int i = neighbors.Count - 1; i >= 0; i--)
                 {
-                    T adjvertex = _map[curr][i];
-                    if (!_visited.Contains(adjvertex))
-                        stack.Push(adjvertex);
+                    T neighbor = _graph[curr][i];
+                    if (!_visited.Contains(neighbor))
+                        stack.Push(neighbor);
                 }
             }
             _visited.Clear();
@@ -86,31 +141,33 @@ namespace DataStructures.Graph
         // This functions implements Breadth-first Search:
         // explores all of the neighbor nodes at the present depth
         // prior to moving on to the nodes at the next depth level.
-        // NOT optimal to implement Recursively
-        public void BFS(T start)
+        // Recursive NOT optimal - Use Iterative Implementation instead.
+        public void BFS(T vertex)
         {
             _visited.Clear();
-            Queue<T> stack = new Queue<T>();
+            Queue<T> queue = new Queue<T>();
 
             //Nodes can be labelled as discovered by storing them
             //in a set, or by an attribute on each node
-            stack.Enqueue(start);
+            queue.Enqueue(vertex);
 
-            while (stack.Count > 0)
+            while (queue.Count > 0)
             {
-                T curr = stack.Dequeue();
+                T curr = queue.Dequeue();
+
                 if (!_visited.Contains(curr))
                 {
                     _visited.Add(curr);
                     Console.WriteLine(curr.ToString());
                 }
-                foreach (KeyValuePair<T, List<T>> vertex in _map)
+
+                foreach (KeyValuePair<T, List<T>> curr_vertex in _graph)
                 {
-                    foreach (T w in vertex.Value)
+                    foreach (T neighbor in curr_vertex.Value)
                     {
-                        if (!_visited.Contains(w))
+                        if (!_visited.Contains(neighbor))
                         {
-                            stack.Enqueue(w);
+                            queue.Enqueue(neighbor);
                         }
                     }
                 }
@@ -119,32 +176,34 @@ namespace DataStructures.Graph
         // This function adds a new vertex to the graph
         public void AddVertex(T s)
         {
-            _map.Add(s, new List<T>());
+            _graph.Add(s, new List<T>());
         }
         // This function adds the edge between source to destination
         public void AddEdge(T source, T destination, bool bidirectional)
         {
-            if (!_map.ContainsKey(source))
+            if (!_graph.ContainsKey(source))
                 AddVertex(source);
-            if (!_map.ContainsKey(destination))
+
+            if (!_graph.ContainsKey(destination))
                 AddVertex(destination);
 
-            _map[source].Add(destination);
+            _graph[source].Add(destination);
+
             if (bidirectional)
-                _map[destination].Add(source);
+                _graph[destination].Add(source);
         }
         // This function gives the count of the vertices.
         public void GetVertexCount()
         {
-            Console.WriteLine(string.Format("The graph has {0} vertex.", _map.Keys.Count));
+            Console.WriteLine(string.Format("The graph has {0} vertex.", _graph.Keys.Count));
         }
         // This function gives the count of edges
         public void GetEdgesCount(bool bidirection)
         {
             int count = 0;
-            foreach (T vertex in _map.Keys)
+            foreach (T vertex in _graph.Keys)
             {
-                count += _map[vertex].Count;
+                count += _graph[vertex].Count;
             }
             if (bidirection)
                 count /= 2;
@@ -154,7 +213,7 @@ namespace DataStructures.Graph
         // This method indicates whether a vertex is present or not.
         public void HasVertex(T s)
         {
-            if (_map.ContainsKey(s))
+            if (_graph.ContainsKey(s))
                 Console.WriteLine(string.Format("The graph contains {0} as a vertex.", s));
             else
                 Console.WriteLine(string.Format("The graph does not contain {0} as a vertex.", s));
@@ -162,7 +221,7 @@ namespace DataStructures.Graph
         // This function gives whether an edge is present
         public void HasEdge(T s, T d)
         {
-            if (_map[s].Contains(d))
+            if (_graph[s].Contains(d))
                 Console.WriteLine(string.Format("The graph has an edge between {0} and {1}.", s, d));
             else
                 Console.WriteLine(string.Format("The graph does not have an edge between {0} and {1}.", s, d));
@@ -172,12 +231,12 @@ namespace DataStructures.Graph
         {
             StringBuilder builder = new StringBuilder();
 
-            foreach (KeyValuePair<T, List<T>> vertex in _map)
+            foreach (KeyValuePair<T, List<T>> vertex in _graph)
             {
                 builder.Append(string.Format("{0}: ",vertex.Key.ToString()));
-                foreach (T w in vertex.Value)
+                foreach (T neighbor in vertex.Value)
                 {
-                    builder.Append(string.Format("{0} ", w.ToString()));
+                    builder.Append(string.Format("{0} ", neighbor.ToString()));
                 }
                 builder.Append("\n");
             }

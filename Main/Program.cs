@@ -20,16 +20,35 @@ namespace Main
 
         public static void Main(string[] args)
         {
-            // TremauxExecution();
-            // GermanCities();
-            PrimAlgorithmn();
+            FindPathBetweenTwoNodes();
+            CyclicGraph2();
+            NonCyclicGraph();
+            CyclicGraph();
+            TremauxExecution();
+            GermanCities();
+            //PrimAlgorithmn();
             /*GraphExecution();
             GermanCities();
             ShortestDistanceBetweenTwoWords();
             StringManip();
             RandomExercises();*/
         }
-
+        private static void FindPathBetweenTwoNodes()
+        {
+            Graph1<int> Graph = new Graph1<int>();
+            
+            Graph.AddEdge(1, 2, false);
+            Graph.AddEdge(2, 3, false);
+            Graph.AddEdge(3, 4, false);
+            Graph.AddEdge(1, 5, false);
+            Graph.AddEdge(5, 6, false);
+            Graph.AddEdge(6, 7, false);
+            Graph.AddEdge(5, 8, false);
+            Graph.AddEdge(1, 9, false);
+            Graph.AddEdge(9, 10, false);
+            Graph.FindPathBetweenTwoVertices(1, 7);
+            Console.ReadLine();
+        }
         private static void PrimAlgorithmn()
         {
             List<Vertex> graph = new List<Vertex>();
@@ -275,22 +294,21 @@ namespace Main
             Console.WriteLine(string.Format("{0} is the distance between the words: {1} and {2}", index_value, WordOne, WordTwo));
             Console.ReadLine();
         }
-
         private static void GermanCities()
         {
             Graph1<string> germanCities = new Graph1<string>();
 
-            germanCities.AddEdge("Frankfurt", "Mannheim", true);
-            germanCities.AddEdge("Frankfurt", "Wurzburg", true);
-            germanCities.AddEdge("Frankfurt", "Kassel", true);
-            germanCities.AddEdge("Mannheim", "Karlsruhe", true);
-            germanCities.AddEdge("Karlsruhe", "Augsburg", true);
-            germanCities.AddEdge("Augsburg", "Munchen", true);
-            germanCities.AddEdge("Wurzburg", "Erfurt", true);
-            germanCities.AddEdge("Wurzburg", "Nurnberg", true);
-            germanCities.AddEdge("Nurnberg", "Stuttgart", true);
-            germanCities.AddEdge("Nurnberg", "Munchen", true);
-            germanCities.AddEdge("Kassel", "Munchen", true);
+            germanCities.AddEdge("Frankfurt", "Mannheim", false);
+            germanCities.AddEdge("Frankfurt", "Wurzburg", false);
+            germanCities.AddEdge("Frankfurt", "Kassel", false);
+            germanCities.AddEdge("Mannheim", "Karlsruhe", false);
+            germanCities.AddEdge("Karlsruhe", "Augsburg", false);
+            germanCities.AddEdge("Augsburg", "Munchen", false);
+            germanCities.AddEdge("Wurzburg", "Erfurt", false);
+            germanCities.AddEdge("Wurzburg", "Nurnberg", false);
+            germanCities.AddEdge("Nurnberg", "Stuttgart", false);
+            germanCities.AddEdge("Nurnberg", "Munchen", false);
+            germanCities.AddEdge("Kassel", "Munchen", false);
 
             Console.WriteLine("\n**** DFS Iterative *****");
             germanCities.DFS("Frankfurt");
@@ -303,8 +321,73 @@ namespace Main
             germanCities.BFS("Frankfurt");
             Console.WriteLine("**************");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~");
-            germanCities.SpanningTree();
+            germanCities.FindSpanningTree();
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~");
+            germanCities.FindPathBetweenTwoVertices("Frankfurt", "Stuttgart");
+
+            Console.ReadLine();
+        }
+        private static void NonCyclicGraph()
+        {
+            Graph1<char> NonCyclic = new Graph1<char>();
+            Console.WriteLine("Noncyclic Graph");
+            NonCyclic.AddEdge('A', 'B', false);
+            NonCyclic.AddEdge('B', 'C', false);
+            NonCyclic.AddEdge('C', 'E', false);
+            Console.Write("Is it cyclic? ");
+
+            var i = NonCyclic.IsCyclic();
+            if (i)
+                Console.Write("Yes.");
+            else
+                Console.Write("No.");
+            Console.WriteLine("\nLast Line");
+            Console.ReadLine();
+        }
+        private static void CyclicGraph2()
+        {
+            Graph1<char> Cyclic = new Graph1<char>();
+            Console.WriteLine("Cyclic Graph");
+            Cyclic.AddEdge('A', 'B', false);
+            Cyclic.AddEdge('B', 'C', false);
+            Cyclic.AddEdge('C', 'A', false);
+            Cyclic.AddEdge('D', 'C', false);
+
+            Console.Write("Is it cyclic? ");
+            var i = Cyclic.IsCyclic();
+            if (i)
+                Console.Write("Yes.");
+            else
+                Console.Write("No.");
+            Console.WriteLine("\nLast Line");
+            Console.ReadLine();
+        }
+        private static void CyclicGraph()
+        {
+            Graph1<char> Cyclic = new Graph1<char>();
+            Console.WriteLine("Cyclic Graph");
+            Cyclic.AddEdge('A', 'B', false);
+            Cyclic.AddEdge('B', 'C', false);
+            Cyclic.AddEdge('C', 'E', false);
+            Cyclic.AddEdge('E', 'F', false);
+            Cyclic.AddEdge('F', 'G', false);
+            Cyclic.AddEdge('G', 'H', false);
+            Cyclic.AddEdge('H', 'A', false);
+            Cyclic.AddEdge('A', 'G', false);
+            Cyclic.AddEdge('B', 'D', false);
+            Cyclic.AddEdge('C', 'D', false);
+            Cyclic.AddEdge('E', 'D', false);
+            Cyclic.AddEdge('F', 'D', false);
+            Cyclic.AddEdge('G', 'D', false);
+            Cyclic.AddEdge('H', 'D', false);
+
+            Console.Write("Is it cyclic? ");
+            var i = Cyclic.IsCyclic();
+            if (i)
+                Console.Write("Yes.");
+            else
+                Console.Write("No.");
+            Console.WriteLine("\nLast Line");
             Console.ReadLine();
         }
 
@@ -333,9 +416,15 @@ namespace Main
             Tremaux.BFS('A');
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             Console.WriteLine("\n**** Spanning Tree ****\n");
-            Tremaux.SpanningTree();
+            Tremaux.FindSpanningTree();
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Console.WriteLine("Last Line");
+            Console.Write("Is it cyclic? ");
+            var i = Tremaux.IsCyclic();
+            if (i)
+                Console.Write("Yes.");
+            else
+                Console.Write("No.");
+            Console.WriteLine("\nLast Line");
             Console.ReadLine();
         }
 
