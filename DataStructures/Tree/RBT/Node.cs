@@ -1,71 +1,71 @@
 ﻿using System;
 namespace DataStructures.Tree.RBT
 {
-    public class Node<T>
+    public class Node<T> where T : IComparable
     {
-        private T item;
-        private Node<T> left, right, parent;
-        private bool red = true;
+        private T _item;
+        private Node<T> _left, _right, _parent;
+        private bool _red = true;
 
         public Node(T item, Node<T> parent)
         {
-            this.item = item;
-            this.parent = parent;
-            left = right = null;
+            this._item = item;
+            this._parent = parent;
+            this._left = _right = null;
         }
         public Node<T> Left
         {
             get
             {
-                return left;
+                return _left;
             }
             set
             {
-                left = value;
+                _left = value;
             }
         }
         public Node<T> Right
         {
             get
             {
-                return right;
+                return _right;
             }
             set
             {
-                right = value;
+                _right = value;
             }
         }
         public Node<T> Parent
         {
             get
             {
-                return parent;
+                return _parent;
             }
             set
             {
-                parent = value;
+                _parent = value;
             }
         }
         public T Item
         {
             get
             {
-                return item;
+                return _item;
             }
             set
             {
-                item = value;
+                _item = value;
             }
         }
         public bool Red
         {
             get
             {
-                return red;
+                return _red;
             }
             set
             {
-                red = value;
+                _red = value;
             }
         }
     }

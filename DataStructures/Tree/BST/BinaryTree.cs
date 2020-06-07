@@ -67,12 +67,10 @@ namespace DataStructures.BST.Tree
                         }
                     }
                 }
-
             }
         }
         public void PreOrder(Node<T> root)
         { 
-
             if (root != null)
             {
                 Console.WriteLine(string.Format("{0}\n",root.Data));
@@ -109,7 +107,6 @@ namespace DataStructures.BST.Tree
                 return SumGrandChildren(root.LeftChild) + SumGrandChildren(root.RightChild) + SumEvenGrandparent(root.LeftChild) + SumEvenGrandparent(root.RightChild);
             else
                 return SumEvenGrandparent(root.LeftChild) + SumEvenGrandparent(root.RightChild);
-
         }
         public int SumGrandChildren(Node<int> root)
         {
@@ -125,6 +122,5 @@ namespace DataStructures.BST.Tree
 
             return ans;
         }
-
     }
 }

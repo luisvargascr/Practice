@@ -3,17 +3,16 @@ namespace DataStructures.Tree.RBT
 {
     public class RBTree<T> where T: IComparable
     { 
-        private int numberElements;
-        private Node<T> root;
-        private Node<T> insertedNode;
+        private int _numberElements;
+        private Node<T> _root;
+        private Node<T> _insertedNode;
 
         public RBTree()
         {
-            numberElements = 0;
-            root = null;
-            insertedNode = null;
+            _numberElements = 0;
+            _root = null;
+            _insertedNode = null;
         }
-
         private void LeftRotate(ref Node<T> node)
         {
             Node<T> nodeParent = node.Parent;
@@ -54,12 +53,13 @@ namespace DataStructures.Tree.RBT
         }
         public void Add(T item)
         {
-            root = InsertNode(root, item, null);
-            numberElements++;
-            if (numberElements > 2)
+            _root = InsertNode(_root, item, null);
+            _numberElements++;
+
+            if (_numberElements > 2)
             {
-                GetNodesAbove(insertedNode, out Node<T> parent, out Node<T> grandParent, out Node<T> greatGrandParent);
-                FixTreeAfterInsertion(insertedNode, parent, grandParent, greatGrandParent);
+                GetNodesAbove(_insertedNode, out Node<T> parent, out Node<T> grandParent, out Node<T> greatGrandParent);
+                FixTreeAfterInsertion(_insertedNode, parent, grandParent, greatGrandParent);
             }
         }
         private Node<T> InsertNode(Node<T> node, T item, Node<T> parent)
@@ -70,7 +70,8 @@ namespace DataStructures.Tree.RBT
             if (node == null)
             {
                 Node<T> newNode = new Node<T>(item, parent);
-                if (numberElements > 0)
+
+                if (_numberElements > 0)
                 {
                     newNode.Red = true;
                 }
@@ -78,7 +79,9 @@ namespace DataStructures.Tree.RBT
                 {
                     newNode.Red = false;
                 }
-                insertedNode = newNode;
+
+                _insertedNode = newNode;
+
                 return newNode;
             }
             else if (nodeItem.CompareTo(origItem) < 0)
@@ -101,6 +104,7 @@ namespace DataStructures.Tree.RBT
             parent = null;
             grandParent = null;
             greatGrandParent = null;
+
             if (curNode != null)
             {
                 parent = curNode.Parent;
@@ -113,7 +117,6 @@ namespace DataStructures.Tree.RBT
             {
                 greatGrandParent = grandParent.Parent;
             }
-
         }
         private void FixTreeAfterInsertion(Node<T> child, Node<T> parent, Node<T> grandParent, Node<T> greatGrandParent)
         {
@@ -161,7 +164,7 @@ namespace DataStructures.Tree.RBT
                         }
                         else
                         {
-                            LeftRotate(ref root);
+                            LeftRotate(ref _root);
                         }
                     }
                 }
@@ -186,7 +189,7 @@ namespace DataStructures.Tree.RBT
                     }
                     else
                     {
-                        RightRotate(ref root);
+                        RightRotate(ref _root);
                     }
                 }
                 else if (grandParent.Right == parent && parent.Left == child)
@@ -211,7 +214,7 @@ namespace DataStructures.Tree.RBT
                     }
                     else
                     {
-                        LeftRotate(ref root);
+                        LeftRotate(ref _root);
                     }
                 }
                 else if (grandParent.Left == parent && parent.Right == child)
@@ -235,12 +238,12 @@ namespace DataStructures.Tree.RBT
                     }
                     else
                     {
-                        RightRotate(ref root);
+                        RightRotate(ref _root);
                     }
                 }
             }
-            if (root.Red)
-                root.Red = false;
+            if (_root.Red)
+                _root.Red = false;
         }
     }
 }
