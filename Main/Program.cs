@@ -46,6 +46,7 @@ namespace Main
             Graph.AddEdge(5, 8, false);
             Graph.AddEdge(1, 9, false);
             Graph.AddEdge(9, 10, false);
+
             Graph.FindPathBetweenTwoVertices(1, 7);
             Console.ReadLine();
         }
@@ -144,7 +145,6 @@ namespace Main
 
             CustomSortString.SortString(a, b);
 
-
             int[] Pancakes = { 3, 2, 4, 1 };
             ArrayExercises.PancakeSort(Pancakes);
 
@@ -203,7 +203,6 @@ namespace Main
             LeetCode lc = new LeetCode();
             var groupSizes = new int[] { 3, 3, 3, 3, 3, 1, 3 };
             var List111 = OneDimensionalArray.GroupThePeople(groupSizes);
-
 
             int[][] indices = new int[3][] { new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 } };
             lc.OddCells(2, 3, indices);
@@ -280,7 +279,6 @@ namespace Main
             Console.ReadLine();
             return arr;
         }
-
         private static void ShortestDistanceBetweenTwoWords()
         {
             LinkedInExercise x11 = new LinkedInExercise();
@@ -334,6 +332,7 @@ namespace Main
             NonCyclic.AddEdge('A', 'B', false);
             NonCyclic.AddEdge('B', 'C', false);
             NonCyclic.AddEdge('C', 'E', false);
+
             Console.Write("Is it cyclic? ");
 
             var i = NonCyclic.IsCyclic();
@@ -341,6 +340,7 @@ namespace Main
                 Console.Write("Yes.");
             else
                 Console.Write("No.");
+
             Console.WriteLine("\nLast Line");
             Console.ReadLine();
         }
@@ -354,11 +354,13 @@ namespace Main
             Cyclic.AddEdge('D', 'C', false);
 
             Console.Write("Is it cyclic? ");
+
             var i = Cyclic.IsCyclic();
             if (i)
                 Console.Write("Yes.");
             else
                 Console.Write("No.");
+
             Console.WriteLine("\nLast Line");
             Console.ReadLine();
         }
@@ -382,11 +384,13 @@ namespace Main
             Cyclic.AddEdge('H', 'D', false);
 
             Console.Write("Is it cyclic? ");
+
             var i = Cyclic.IsCyclic();
             if (i)
                 Console.Write("Yes.");
             else
                 Console.Write("No.");
+
             Console.WriteLine("\nLast Line");
             Console.ReadLine();
         }

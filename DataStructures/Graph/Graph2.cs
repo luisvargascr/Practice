@@ -29,7 +29,7 @@ namespace DataStructures.Graph
             return _top == -1;
         }
     }
-    public class VertexN<T>
+    public class VertexN<T> where T:IComparable
     {
         public T Label { get; set; }
         public bool WasVisited { get; set; }
@@ -40,7 +40,7 @@ namespace DataStructures.Graph
             WasVisited = false;
         }
     }
-    public class Graph2<T>
+    public class Graph2<T> where T:IComparable
     {
         private const int MAX_VERTS = 20;
         private VertexN<T> [] _vertexList;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataStructures.Graph
 {
-    public class Graph1<T>
+    public class Graph1<T> where T:IComparable
     {
         private Dictionary<T, List<T>> _graph;
         private HashSet<T> _visited;
@@ -29,6 +29,10 @@ namespace DataStructures.Graph
 
             _visited.Clear();
             return false;
+        }
+        public bool IsCyclic()
+        {
+            return HasCycle(_graph.Keys.FirstOrDefault());
         }
         private void BuildPathBetweenTwoVertices(T vertex, T end, List<T> visited, List<T> localPathList)
         {
@@ -74,10 +78,6 @@ namespace DataStructures.Graph
                 if (!_visited.Contains(neighbor))
                     DFS(neighbor, true);
             }
-        }
-        public bool IsCyclic()
-        {
-            return HasCycle(_graph.Keys.FirstOrDefault());
         }
         public void FindSpanningTree()
         {
