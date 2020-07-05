@@ -5,6 +5,7 @@ using DataStructures.Arrays.OneDimensionalArrays;
 using DataStructures.Arrays.Strings;
 using DataStructures.BST.Tree;
 using DataStructures.Graph;
+using DataStructures.Heaps;
 using LeetCodePractice;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            MinHeapExercise();
+            MaxHeapExercise();
             FindPathBetweenTwoNodes();
             CyclicGraph2();
             NonCyclicGraph();
@@ -32,6 +35,42 @@ namespace Main
             ShortestDistanceBetweenTwoWords();
             StringManip();
             RandomExercises();*/
+        }
+        private static void MinHeapExercise()
+        {
+            MinHeap minHeap = new MinHeap(10);
+            minHeap.Insert(41);
+            minHeap.Insert(90);
+            minHeap.Insert(23);
+            minHeap.Insert(5);
+            minHeap.Insert(14);
+            minHeap.Insert(32);
+            minHeap.Insert(53);
+            minHeap.Insert(50);
+            minHeap.Insert(64);
+            minHeap.Insert(87);
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            Console.ReadLine();
+        }
+        private static void MaxHeapExercise()
+        {
+            MaxHeap maxHeap = new MaxHeap(10);
+            maxHeap.Insert(41);
+            maxHeap.Insert(90);
+            maxHeap.Insert(23);
+            maxHeap.Insert(5);
+            maxHeap.Insert(14);
+            maxHeap.Insert(32);
+            maxHeap.Insert(53);
+            maxHeap.Insert(50);
+            maxHeap.Insert(64);
+            maxHeap.Insert(87);
+            maxHeap.Print();
+            maxHeap.Remove();
+            maxHeap.Print();
+            Console.ReadLine();
         }
         private static void FindPathBetweenTwoNodes()
         {

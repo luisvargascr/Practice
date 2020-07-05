@@ -22,6 +22,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Edge.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Prim.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Vertex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Heaps\MaxHeap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Heaps\MinHeap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultidimensionalArrays.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LinkedList\Node.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LinkedList\SinglyLinkedList.cs" />
