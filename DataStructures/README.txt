@@ -1,0 +1,1 @@
+﻿Solution should be compiled in x64 to work in Windows 10 and MacOS Catalina.

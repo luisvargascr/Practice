@@ -46,4 +46,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Tree\BST\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tree\RBT\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)README.txt" />
+  </ItemGroup>
 </Project>
