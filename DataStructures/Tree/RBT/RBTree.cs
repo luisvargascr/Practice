@@ -64,8 +64,8 @@ namespace DataStructures.Tree.RBT
         }
         private Node<T> InsertNode(Node<T> node, T item, Node<T> parent)
         {
-            IComparable nodeItem = node.Item as IComparable;
-            IComparable origItem = item as IComparable;
+            IComparable nodeItem = null;
+            IComparable origItem = null;
 
             if (node == null)
             {
@@ -84,19 +84,56 @@ namespace DataStructures.Tree.RBT
 
                 return newNode;
             }
-            else if (nodeItem.CompareTo(origItem) < 0)
-            {
-                node.Left = InsertNode(node.Left, item, node);
-                return node;
-            }
-            else if (nodeItem.CompareTo(origItem) > 0)
-            {
-                node.Right = InsertNode(node.Right, item, node);
-                return node;
-            }
             else
             {
-                throw new InvalidOperationException("Cannot add duplicate object.");
+                nodeItem = node.Item as IComparable;
+                origItem = item as IComparable;
+
+                if (nodeItem.CompareTo(origItem) < 0)
+                {
+                    node.Left = InsertNode(node.Left, item, node);
+                    return node;
+                }
+                else if (nodeItem.CompareTo(origItem) > 0)
+                {
+                    node.Right = InsertNode(node.Right, item, node);
+                    return node;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Cannot add duplicate object.");
+                }
+            }
+        }
+        public Node<T> GetRoot()
+        {
+            return _root;
+        }
+        public void PreOrder(Node<T> root)
+        {
+            if (root != null)
+            {
+                Console.Write(string.Format("{0}", root.Item));
+                PreOrder(root.Left);
+                PreOrder(root.Right);
+            }
+        }
+        public void InOrder(Node<T> root)
+        {
+            if (root != null)
+            {
+                InOrder(root.Left);
+                Console.Write(string.Format("{0}", root.Item));
+                InOrder(root.Right);
+            }
+        }
+        public void PostOrder(Node<T> root)
+        {
+            if (root != null)
+            {
+                PostOrder(root.Left);
+                PostOrder(root.Right);
+                Console.Write(string.Format("{0}", root.Item));
             }
         }
         private void GetNodesAbove(Node<T> curNode, out Node<T> parent, out Node<T> grandParent, out Node<T> greatGrandParent)

@@ -6,6 +6,7 @@ using DataStructures.Arrays.Strings;
 using DataStructures.BST.Tree;
 using DataStructures.Graph;
 using DataStructures.Heaps;
+using DataStructures.Tree.RBT;
 using LeetCodePractice;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            NYSpellingBeeGame();
             MinHeapExercise();
             MaxHeapExercise();
             FindPathBetweenTwoNodes();
@@ -136,6 +138,27 @@ namespace Main
             Console.WriteLine(MyPrimAlgo.MinimumSpanningTreeToString());
             Console.WriteLine("****************");
             Console.WriteLine("\n");
+            Console.ReadLine();
+        }
+        private static void NYSpellingBeeGame()
+        {
+            string input = "I/TWADLN";
+            char mandatory_char = input[0];
+            string actual_input = input.Substring(2);
+
+            RBTree<char> tree = new RBTree<char>();
+
+            tree.Add(mandatory_char);
+            foreach (char letter in actual_input)
+            {
+                tree.Add(letter);
+            }
+            Console.WriteLine("\n");
+            tree.InOrder(tree.GetRoot());
+            Console.WriteLine("\n");
+            tree.PostOrder(tree.GetRoot());
+            Console.WriteLine("\n");
+            tree.PreOrder(tree.GetRoot());
             Console.ReadLine();
         }
 
