@@ -10,10 +10,13 @@ using DataStructures.Tree.RBT;
 using LeetCodePractice;
 using System;
 using System.Collections.Generic;
+using System.Text;
+using HackerRank;
+using ArrayExercises = DataStructures.Arrays.OneDimensionalArrays.ArrayExercises;
 
 namespace Main
 {
-    class MainClass
+    public class MainClass
     {
         // Constants for the game rules.
         private const int Heigth = 3;
@@ -22,7 +25,49 @@ namespace Main
 
         public static void Main(string[] args)
         {
-            NYSpellingBeeGame();
+            // 1, 4, 2, 10, 2, 3, 1, 0, 20
+            int[] maxSumArr = { 1, 4, 2, 10, 2, 3, 1, 0, 20 };
+
+            Exercises1.Rotate(maxSumArr, 3);
+              
+
+
+            int k = 4;
+            int n = maxSumArr.Length;
+            Console.WriteLine(Exercises1.MaxSum(maxSumArr, n, k));
+            Console.WriteLine(Exercises1.SlidingWindowMaxsum(maxSumArr, n, k));
+            // maxSumArr = new int[] { 1, 4, 2, 10, 3, 0, 20 };
+            Array.Sort(maxSumArr);
+            
+            Console.WriteLine(Exercises1.BinarySearch(maxSumArr, 2));
+            Console.ReadLine();
+
+
+
+            int[] sumArray = { 2, 3, 5, 8, 9, 10, 11 };
+
+
+
+            int val = 17;
+            int arrSize = sumArray.Length;
+            Console.WriteLine(Exercises1.TwoPointerTechniqueIsPairSum(sumArray, arrSize, val));
+
+
+            int[] myArr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            Exercises1.ReverseArray(myArr);
+            var output = new StringBuilder();
+            foreach (int i in myArr)
+            {
+                output.Append(i.ToString() + ",");
+            }
+            Console.WriteLine(output.ToString().TrimEnd(','));
+            Console.ReadLine();
+
+            List<int> xLuis = new List<int>() { 10,20 };
+            HackerRankSolution hackerRank = new HackerRankSolution();
+            Console.WriteLine(hackerRank.Solve(xLuis, 10));
+            Sorting();
+            /*NYSpellingBeeGame();
             MinHeapExercise();
             MaxHeapExercise();
             FindPathBetweenTwoNodes();
@@ -54,6 +99,23 @@ namespace Main
             minHeap.Print();
             minHeap.Remove();
             minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+            minHeap.Remove();
+            minHeap.Print();
+     
             Console.ReadLine();
         }
         private static void MaxHeapExercise()
@@ -69,6 +131,8 @@ namespace Main
             maxHeap.Insert(50);
             maxHeap.Insert(64);
             maxHeap.Insert(87);
+            maxHeap.Print();
+            maxHeap.Remove();
             maxHeap.Print();
             maxHeap.Remove();
             maxHeap.Print();
@@ -281,7 +345,7 @@ namespace Main
 
         private static int[] Sorting()
         {
-            int[] arr = new int[] { 8, 3, 2, 7, 9, 1, 4, 1 };
+            /*int[] arr = new int[] { 8, 3, 2, 7, 9, 1, 4, 1 };
             Console.WriteLine("\n");
             Console.WriteLine("Before HeapSort:");
             foreach (int i in arr)
@@ -298,9 +362,9 @@ namespace Main
                 Console.Write(i + ",");
             }
             Console.WriteLine("\n");
-            Console.ReadLine();
+            Console.ReadLine();*/
 
-            arr = new int[] { 4, 88, 23, 65, 2, 89, 7, 3, 1, 90, 4 };
+            var arr = new int[] { 777, 8, 54, 1, 93, 4, 3, 25, 2, 1000, 0, 5, 56, 6 };  //{ 4, 88, 23, 65, 2, 89, 7, 3, 1, 90, 4 };
 
             Console.WriteLine("\n");
             Console.WriteLine("Before MergeSort:");
@@ -309,7 +373,8 @@ namespace Main
                 Console.Write(i + ",");
             }
             Console.ReadLine();
-            MergeSortAlgorithm.MergeSort(arr, 0, arr.Length - 1);
+            //MergeSortAlgorithm.MergeSort(arr, 0, arr.Length - 1);
+            MergeSortAlgorithm.MergeSort(arr, true);
 
             Console.WriteLine("\n");
             Console.WriteLine("After MergeSort:");
@@ -337,7 +402,7 @@ namespace Main
             {
                 Console.Write(i + ",");
             }
-            Console.WriteLine("\n");
+            Console.WriteLine("\nFinished.\n");
             Console.ReadLine();
             return arr;
         }

@@ -10,8 +10,8 @@ namespace DataStructures.Heaps
 
         public MaxHeap(int maxSize)
         {
-            _maxSize = maxSize;
-            _currSize = 0;
+            _maxSize = maxSize + 1;
+            _currSize = 1;
             _heap = new int[_maxSize];
         }
         public bool IsEmpty()
@@ -28,7 +28,7 @@ namespace DataStructures.Heaps
 
             return true;
         }
-        public void TrickleUp(int pos)
+        public void TrickleUp2(int pos)
         {
             int Parent = (pos - 1) / 2;
             int Bottom = _heap[pos];
@@ -41,11 +41,25 @@ namespace DataStructures.Heaps
             }
             _heap[pos] = Bottom;
         }
+        public void TrickleUp(int pos)
+        {
+            int Parent = pos / 2;
+            int Bottom = _heap[pos];
+
+            while (pos > 1 && _heap[Parent] < Bottom)
+            {
+                int tmp = _heap[Parent];
+                _heap[Parent] = _heap[pos];
+                _heap[pos] = tmp;
+                pos--;
+                Parent = pos / 2;
+            }
+        }
         public int Remove()
         {
-            int Root = _heap[0];
-            _heap[0] = _heap[--_currSize];
-            TrickleDown(0);
+            int Root = _heap[1];
+            _heap[1] = _heap[--_currSize];
+            TrickleDown(1);
             return Root;
         }
         public void TrickleDown(int pos)
@@ -77,7 +91,15 @@ namespace DataStructures.Heaps
         }
         public void Print()
         {
-            Console.WriteLine(string.Join(",", _heap));
+            string val = string.Empty;
+
+            for (int i = 1; i < _maxSize; i++)
+            {
+                val += _heap[i] + ",";
+            }
+            val = val.Substring(0, val.Length - 1);
+            Console.WriteLine(val);
+            Console.WriteLine("End of MaxHeap");
         }
     }
 }

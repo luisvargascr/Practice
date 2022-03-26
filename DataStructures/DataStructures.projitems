@@ -37,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\OneDimensionalArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Graph\Graph2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Arrays\OneDimensionalArrays\Exercises1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)LinkedList\" />

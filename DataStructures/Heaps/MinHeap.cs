@@ -10,8 +10,8 @@ namespace DataStructures.Heaps
 
         public MinHeap(int maxSize)
         {
-            _maxSize = maxSize;
-            _currSize = 0;
+            _maxSize = maxSize + 1;
+            _currSize = 1;
             _heap = new int[_maxSize];
         }
         public bool IsEmpty()
@@ -30,54 +30,65 @@ namespace DataStructures.Heaps
         }
         public void TrickleUp(int pos)
         {
-            int Parent = (pos - 1) / 2;
+            int Parent = pos / 2;
             int Bottom = _heap[pos];
 
-            while(pos > 0 && _heap[Parent] > Bottom)
+            while (pos > 1 && _heap[Parent] > Bottom)
             {
-                _heap[pos] = _heap[Parent];
-                pos = Parent;
-                Parent = (Parent - 1) / 2;
+                int tmp = _heap[Parent];
+                _heap[Parent] = _heap[pos];
+                _heap[pos] = tmp;
+                pos--;
+                Parent = pos / 2;
             }
-            _heap[pos] = Bottom;
         }
         public int Remove()
         {
-            int Root = _heap[0];
-            _heap[0] = _heap[--_currSize];
-            TrickleDown(0);
+            int Root = _heap[1];
+            _heap[1] = _heap[--_currSize];
+            TrickleDown(1);
             return Root;
         }
         public void TrickleDown(int pos)
         {
-            int SmallerChild;
+            
             int Top = _heap[pos];
 
-            while (pos < _currSize/2)
-            {
-                int LeftChild  = 2 * pos + 1;
-                int RightChild = 2 * pos + 2;
+            int LeftChild = 2 * pos;
+            int RightChild = 2 * pos + 1;
+            int tmp = 0;
 
-                if (RightChild < _currSize && _heap[LeftChild] > _heap[RightChild])
+            while (pos > 0)
+            { 
+                if (Top > _heap[LeftChild])
                 {
-                    SmallerChild = RightChild;
-                }
-                else
+                    tmp = _heap[pos];
+                    _heap[pos] = _heap[LeftChild];
+                    _heap[LeftChild] = tmp;
+
+                }else if (Top > _heap[RightChild])
                 {
-                    SmallerChild = LeftChild;
+                    tmp = _heap[pos];
+                    _heap[pos] = _heap[RightChild];
+                    _heap[RightChild] = tmp;
+
                 }
-
-                if (Top <= _heap[SmallerChild])
-                    break;
-
-                _heap[pos] = _heap[SmallerChild];
-                pos = SmallerChild;
+                Top = pos--;
+                LeftChild = 2 * pos;
+                RightChild = 2 * pos + 1;
             }
-            _heap[pos] = Top;
         }
         public void Print()
         {
-            Console.WriteLine(string.Join(",", _heap));
+            string val = string.Empty;
+
+            for (int i = 1; i < _currSize; i++)
+            {
+                val += _heap[i] + ",";
+            }
+            val = val.Substring(0, val.Length - 1);
+            Console.WriteLine(val);
+            Console.WriteLine("End of MinHeap");
         }
     }
 }

@@ -11,5 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)WarmUp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArrayExercises.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HackerRankSolution.cs" />
   </ItemGroup>
 </Project>
