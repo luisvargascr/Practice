@@ -25,6 +25,11 @@ namespace Main
 
         public static void Main(string[] args)
         {
+            int[] juggling = { 1, 2, 3, 4, 5, 6 };
+            int n1 = 6, d = 2;
+
+            Exercises1.JugglingAlgorithmRotate(juggling, d, n1);
+
             // 1, 4, 2, 10, 2, 3, 1, 0, 20
             int[] maxSumArr = { 1, 4, 2, 10, 2, 3, 1, 0, 20 };
 

@@ -125,6 +125,35 @@ namespace DataStructures.Arrays.OneDimensionalArrays
             Reverse(arr, d, arr.Length - 1);
             Reverse(arr, 0, arr.Length - 1);
         }
+        private static int GDC(int a, int b)
+        {
+            if (b == 0)
+                return a;
+            return GDC(a, a % b);
+        }
+        public static void JugglingAlgorithmRotate(int[] arr, int d, int n)
+        {
+            d = d % n;
+            int g = GDC(d, n);
 
+            for (int i = 0; i < g; i++)
+            {
+                int temp = arr[i];
+                int j = i;
+                while (true)
+                {
+                    int k = j + d;
+                    if (k >= n)
+                        k = k - n;
+
+                    if (k == i)
+                        break;
+
+                    arr[j] = arr[k];
+                    j = k;
+                }
+                arr[j] = temp;
+            }
+        }
     }
 }
